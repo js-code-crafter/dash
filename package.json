@@ -1,0 +1,43 @@
+{
+  "name": "dash",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A simple, lite-weight and powerful CSS framework",
+  "keywords": [
+    "utility-first CSS framework",
+    "utility-first",
+    "css",
+    "utility",
+    "sass",
+    "scss",
+    "simple",
+    "lite-weight",
+    "css framework",
+    "pure css",
+    "no config"
+  ],
+  "scripts": {
+    "start": "webpack --mode=production"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "css-loader": "^6.8.1",
+    "mini-css-extract-plugin": "^2.7.6",
+    "postcss": "^8.4.32",
+    "postcss-loader": "^7.3.3",
+    "sass": "^1.69.5",
+    "sass-loader": "^13.3.2",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-node-externals": "^3.0.0"
+  },
+  "browserslist": [
+    "defaults",
+    "not ie < 11",
+    "last 12 versions",
+    "> 1%",
+    "iOS 7",
+    "last 6 iOS versions"
+  ]
+}
