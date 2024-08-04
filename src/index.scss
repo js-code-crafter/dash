@@ -1,0 +1,1525 @@
+@import "dash-mixins";
+
+/*
+*   Dash
+*   A simple, lite-weight and powerful CSS framework
+*   version: 1.0.0
+*/
+
+/* Unstyled element format. For example it can changes a link to look like as a normal text. */
+/* Example: -unstyled, -unstyled-hover, -unstyled-focus */
+.#{$-prefix}unstyled,
+.#{$-prefix}unstyled * {
+  text-decoration: none;
+  font-weight: normal;
+  color: black;
+  cursor: default;
+  background: transparent;
+  box-sizing: border-box;
+  box-shadow: none;
+  text-shadow: none;
+  border: none;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-clip: border-box;
+  scroll-behavior: smooth;
+}
+
+/* Link format */
+/* Example: -link -link-hover -link-focus */
+.#{$-prefix}link {
+  @include states {
+    text-decoration: none;
+    cursor: pointer;
+    color: $-pink;
+    font-weight: bold;
+    display: block;
+  }
+}
+
+/* Bold text */
+/* Example: -bold -bold-hover -bold-focus */
+.#{$-prefix}t-bold {
+  @include states {
+    font-weight: bold;
+  }
+}
+
+/* italic text */
+/* Example: -italic -italic-hover -italic-focus */
+.#{$-prefix}t-italic {
+  @include states {
+    font-style: italic;
+  }
+}
+
+/*** BEGIN ***/
+/* Text decoration formats */
+
+/* Underlined text */
+/* Example: -underline -underline-hover -underline-focus */
+.#{$-prefix}t-underline {
+  @include states {
+    text-decoration: underline;
+  }
+}
+
+.#{$-prefix}t-overline {
+  @include states {
+    text-decoration: overline;
+  }
+}
+
+.#{$-prefix}t-line-through {
+  @include states {
+    text-decoration: line-through;
+  }
+}
+
+.#{$-prefix}t-underline {
+  @include states {
+    text-decoration: dashed;
+  }
+}
+
+.#{$-prefix}t-underline {
+  @include states {
+    text-decoration: dotted;
+  }
+}
+
+.#{$-prefix}t-underline {
+  @include states {
+    text-decoration: double;
+  }
+}
+
+.#{$-prefix}t-wavy {
+  @include states {
+    text-decoration: wavy;
+  }
+}
+
+.#{$-prefix}t-solid {
+  @include states {
+    text-decoration: solid;
+  }
+}
+
+.#{$-prefix}t-none {
+  @include states {
+    text-decoration: none;
+  }
+}
+/*** END ***/
+
+/*** BEGIN ***/
+/* Text transform */
+.#{$-prefix}t-lowercase {
+  @include states {
+    text-transform: lowercase;
+  }
+}
+
+.#{$-prefix}t-uppercase {
+  @include states {
+    text-transform: uppercase;
+  }
+}
+
+.#{$-prefix}t-capitalize {
+  @include states {
+    text-transform: capitalize;
+  }
+}
+/*** END ***/
+
+/* Left to right direction  */
+.#{$-prefix}ltr {
+  direction: ltr;
+}
+
+/* Right to left direction  */
+.#{$-prefix}rtl {
+  direction: rtl;
+}
+
+/* Clear space from both sides of the element. */
+.#{$-prefix}clear {
+  clear: both;
+}
+
+/* Clear space from right side of the element. */
+.#{$-prefix}clear-right {
+  clear: right;
+}
+
+/* Clear space from left side of the element. */
+.#{$-prefix}clear-left {
+  clear: left;
+}
+
+/* Normal position */
+.#{$-prefix}clear-none {
+  clear: none;
+}
+
+/* Use `-clearfix` to clear space from both sides of the element. (cross browser support) */
+/*** BEGIN ***/
+.#{$-prefix}clearfix:before {
+  content: "";
+  display: table;
+}
+
+.#{$-prefix}clearfix:after {
+  clear: both;
+  content: ".";
+  display: block;
+  font-size: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+.#{$-prefix}clearfix {
+  zoom: 1;
+  clear: both;
+  width: 100%;
+  min-height: 0.01px;
+}
+/*** END ***/
+
+/* The box-sizing methods */
+/*** BEGIN ***/
+.#{$-prefix}box-content,
+.#{$-prefix}box-content * {
+  box-sizing: content-box;
+}
+
+.#{$-prefix}box-border,
+.#{$-prefix}box-border * {
+  box-sizing: border-box;
+}
+/*** END ***/
+
+/* Object fit */
+/*** BEGIN ***/
+.#{$-prefix}fit-cover {
+  object-fit: cover;
+}
+
+.#{$-prefix}fit-fill {
+  object-fit: fill;
+}
+
+.#{$-prefix}fit-none {
+  object-fit: none;
+}
+
+.#{$-prefix}fit-scale-down {
+  object-fit: scale-down;
+}
+/*** END ***/
+
+/* Aspect ratio */
+/*** BEGIN ***/
+.#{$-prefix}aspect-ratio {
+  aspect-ratio: auto;
+}
+
+.#{$-prefix}aspect-video {
+  aspect-ratio: 16 / 9;
+}
+
+.#{$-prefix}aspect-square {
+  aspect-ratio: 1 / 1;
+}
+
+.#{$-prefix}aspect-2-1 {
+  aspect-ratio: 2 / 1;
+}
+
+.#{$-prefix}aspect-3-2 {
+  aspect-ratio: 3 / 2;
+}
+
+.#{$-prefix}aspect-4-3 {
+  aspect-ratio: 4 / 3;
+}
+
+.#{$-prefix}aspect-34-21 {
+  aspect-ratio: 34 / 21;
+}
+
+.#{$-prefix}aspect-1-2 {
+  aspect-ratio: 1 / 2;
+}
+
+.#{$-prefix}aspect-2-3 {
+  aspect-ratio: 2 / 3;
+}
+
+.#{$-prefix}aspect-3-4 {
+  aspect-ratio: 3 / 4;
+}
+
+.#{$-prefix}aspect-21-34 {
+  aspect-ratio: 21 / 34;
+}
+/*** END ***/
+
+/* Position property */
+/*** BEGIN ***/
+.#{$-prefix}pos-absolute {
+  position: absolute;
+}
+
+.#{$-prefix}pos-relative {
+  position: relative;
+}
+
+.#{$-prefix}pos-static {
+  position: static;
+}
+
+.#{$-prefix}pos-fixed {
+  position: fixed;
+}
+
+.#{$-prefix}pos-sticky {
+  position: sticky;
+  top: 0;
+}
+
+.#{$-prefix}pos-0 {
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.#{$-prefix}pos-center {
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: center;
+}
+
+.#{$-prefix}pos-10 {
+  left: 10%;
+  transform: translate(-90%, 0);
+}
+
+.#{$-prefix}pos-20 {
+  left: 20%;
+  transform: translate(-80%, 0);
+}
+
+.#{$-prefix}pos-30 {
+  left: 30%;
+  transform: translate(-70%, 0);
+}
+
+.#{$-prefix}pos-40 {
+  left: 40%;
+  transform: translate(-60%, 0);
+}
+
+.#{$-prefix}pos-50 {
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.#{$-prefix}pos-60 {
+  left: 60%;
+  transform: translate(-40%, 0);
+}
+
+.#{$-prefix}pos-70 {
+  left: 70%;
+  transform: translate(-30%, 0);
+}
+
+.#{$-prefix}pos-80 {
+  left: 80%;
+  transform: translate(-20%, 0);
+}
+
+.#{$-prefix}pos-90 {
+  left: 90%;
+  transform: translate(-10%, 0);
+}
+
+.#{$-prefix}pos-100 {
+  left: 100%;
+  transform: translate(0%, 0);
+}
+
+.#{$-prefix}pos-l {
+  object-position: left;
+}
+
+.#{$-prefix}pos-r {
+  object-position: right;
+}
+
+.#{$-prefix}pos-t {
+  object-position: top;
+}
+
+.#{$-prefix}pos-b {
+  object-position: bottom;
+}
+
+.#{$-prefix}pos-lt {
+  object-position: left top;
+}
+
+.#{$-prefix}pos-rt {
+  object-position: right top;
+}
+
+.#{$-prefix}pos-lb {
+  object-position: left bottom;
+}
+
+.#{$-prefix}pos-rb {
+  object-position: right bottom;
+}
+
+/*** END ***/
+
+/* Inline element behavior */
+.#{$-prefix}d-inline {
+  display: inline;
+}
+
+/* Inline container behavior */
+.#{$-prefix}d-inline-block {
+  display: inline-block;
+}
+
+/* List item behavior */
+.#{$-prefix}d-list-item {
+  display: list-item;
+}
+
+/* Grid behavior */
+.#{$-prefix}d-grid {
+  display: grid;
+}
+
+/* Mouse cursor shapes */
+/*** BEGIN ***/
+/* Default mouse cursor */
+.#{$-prefix}cursor-default {
+  cursor: default;
+}
+
+/* Pointer mouse cursor */
+.#{$-prefix}cursor-pointer {
+  cursor: pointer;
+}
+
+.#{$-prefix}cursor-auto {
+  cursor: auto;
+}
+
+.#{$-prefix}cursor-none {
+  cursor: none;
+}
+
+.#{$-prefix}cursor-help {
+  cursor: help;
+}
+
+.#{$-prefix}cursor-progress {
+  cursor: progress;
+}
+
+.#{$-prefix}cursor-wait {
+  cursor: wait;
+}
+
+.#{$-prefix}cursor-crosshair {
+  cursor: crosshair;
+}
+
+.#{$-prefix}cursor-text {
+  cursor: text;
+}
+
+.#{$-prefix}cursor-row-resize {
+  cursor: row-resize;
+}
+
+.#{$-prefix}cursor-col-resize {
+  cursor: col-resize;
+}
+/*** END ***/
+
+/* Text formatters */
+/*** BEGIN ***/
+.#{$-prefix}t-break {
+  page-break-before: always;
+}
+
+.#{$-prefix}t-no-wrap {
+  white-space: nowrap;
+}
+
+.#{$-prefix}t-ellipsis {
+  text-overflow: ellipsis;
+}
+
+.#{$-prefix}t-single-row {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/*** END ***/
+
+/* Safe fonts*/
+/*** BEGIN ***/
+.#{$-prefix}font-sans-serif {
+  font-family: sans-serif;
+}
+
+.#{$-prefix}font-arial {
+  font-family: arial, /* Windows, MacOS */ helvetica,
+    /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-helvetica {
+  font-family: arial, /* Windows, MacOS */ helvetica,
+    /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-verdana {
+  font-family: verdana, /* Windows, MacOS */ /* Fallback options */ arial,
+    /* Windows, MacOS */ helvetica, /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-tahoma {
+  font-family: tahoma, /* MS WebFont */ /* Fallback options */ arial,
+    /* Windows, MacOS */ helvetica, /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-arial-black {
+  font-family: "Arial Black",
+    /* Windows, MacOS */ /* Fallback options */ helvetica,
+    /* Unix+X, MacOS */ sans-serif;
+  font-weight: bold;
+}
+
+.#{$-prefix}font-comic-sans-ms {
+  font-family: "Comic Sans MS", /* MS WebFont */ /* Fallback options */ arial,
+    /* Windows, MacOS */ helvetica, /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-trebuchet-ms {
+  font-family: "Trebuchet MS", /* MS WebFont */ /* Fallback options */ arial,
+    /* Windows, MacOS */ helvetica, /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-impact {
+  font-family: impact, /* MS WebFont */ /* Fallback options */ helvetica,
+    /* Unix+X, MacOS */ sans-serif;
+}
+
+.#{$-prefix}font-courier {
+  font-family: courier, /* Unix+X, MacOS */ monospace;
+}
+
+.#{$-prefix}font-courier-new {
+  font-family: "courier new", /* Windows, MacOS */ courier,
+    /* Unix+X, MacOS */ monospace;
+}
+
+.#{$-prefix}font-andale-mono {
+  /* A Monaco-like font */
+  font-family: "andale mono", /* MS WebFont */ "monotype.com",
+    /* MS WebFont, former name */ monaco,
+    /* MacOS */ /* Fallback options */ "courier new",
+    /* Windows, MacOS */ courier, /* Unix+X, MacOS */ monospace;
+}
+
+.#{$-prefix}font-georgia {
+  font-family: georgia, /* Windows, MacOS */ /* Fallback options */ times,
+    /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-times {
+  font-family: "Times Roman", /* Windows */ times, /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-times-new-roman {
+  font-family: "Times New Roman", /* Windows, MacOS */ "Times Roman",
+    /* Windows */ TimesNR, /* Macintosh ? */ times,
+    /* Unix+X, Macintosh */ serif;
+}
+
+.#{$-prefix}font-palatino {
+  font-family: "Palatino Linotype", /* Windows */ "URW Palladio L",
+    /* Unix+FontConfig (ugly!) */ "palladio l", /* Unix+X+FreeType */ palatino,
+    /* MacOS */ "book antiqua", /* Win95 */ "Goudy Old Style",
+    /* "Goudy Old Style" is vaguely like Palatino. */ /* Fallback options */
+      times,
+    /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-century-schoolbook {
+  font-family: "Century Schoolbook", /* MacOS, Windows (HP Printer) */ Century,
+    /* Windows, MacOS */ "new century schoolbook",
+    /* Unix+X */ "Century Schoolbook L",
+    /* Unix+X+FontConfig */ /* Fallback options */ times,
+    /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-bookman {
+  font-family: "Bookman Old Style", /* Windows, MacOS */ "Serifa BT",
+    /* Windows XP. Not the same font, but the overall look is close enough. */
+      "URW Bookman L",
+    /* Unix+X+FontConfig */ "itc bookman",
+    /* Unix+X */ /* Fallback options */ times, /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-garamond {
+  font-family: Garamond, /* Windows */ Garamond, /* MacOS */ "Garamond Antiqua",
+    /* Windows (HP printer) */ /* Fallback options */ times,
+    /* Unix+X, MacOS */ serif;
+}
+
+.#{$-prefix}font-avant-garde {
+  font-family: "Century Gothic", /* Windows (HP printer) */ "Avant Garde Gothic",
+    /* HP font name */ "Avant Garde", /* MacOS */ "URW Gothic L",
+    /* Unix+X+FontConfig */ /* Fallback options */ helvetica,
+    /* Unix+X, MacOS */ sans-serif;
+}
+/*** END ***/
+
+/* Ribbon */
+.#{$-prefix}ribbon {
+  overflow: hidden;
+  height: 4px;
+  font-size: 0;
+}
+
+/* Responsive image */
+.#{$-prefix}img-responsive {
+  max-width: none;
+}
+
+/* Background  */
+/*** BEGIN ***/
+.#{$-prefix}bg-cover {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.#{$-prefix}bg-fixed {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/*** END ***/
+
+/* Table */
+/*** BEGIN ***/
+.#{$-prefix}table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  text-align: right;
+}
+
+.#{$-prefix}table th {
+  border-bottom: 2px #d1d1d1 solid;
+  padding: 8px 12px;
+}
+
+.#{$-prefix}table td {
+  border-bottom: 1px #d4d4d4 solid;
+  padding: 8px 12px;
+}
+
+.#{$-prefix}table-striped tr:nth-child(2n + 1) {
+  background-color: #f3f3f3;
+}
+
+.#{$-prefix}table-bordered,
+.#{$-prefix}table-bordered td,
+.#{$-prefix}table-bordered th {
+  border: 1px #ccc solid;
+}
+/*** END ***/
+
+/* Effects and animations */
+/*** BEGIN ***/
+/* Full rounded */
+.#{$-prefix}b-rounded-full {
+  @include prefixes(border-radius, 50%);
+}
+
+/* Rotates the element */
+/* Values: 0, 30, 45, 60, 90, 180, 360, ccw-30, ccw-45, ccw-60, ccw-90, ccw-180, ccw-360 */
+/* Example: -effect-rotate-z-30 -effect-rotate-y-45-hover -effect-rotate-x-60-focus */
+/*** BEGIN ***/
+.#{$-prefix}effect-rotate-z {
+  @include mb-items(transform, $-rotate-degrees);
+}
+
+.#{$-prefix}effect-rotate-y {
+  @include mb-items(transform, $-rotate-degrees);
+}
+
+.#{$-prefix}effect-rotate-x {
+  @include mb-items(transform, $-rotate-degrees);
+}
+/*** END ***/
+
+/* Flip horizontal */
+.#{$-prefix}effect-flip-hz {
+  //filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+  @include prefixes(transform, scale(-1, 1));
+}
+
+/* Flip vertical */
+.#{$-prefix}effect-flip-vt {
+  //filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
+  @include prefixes(transform, scale(1, -1));
+}
+
+.#{$-prefix}effect-filter-none {
+  @include states {
+    @include prefixes(filter, none);
+  }
+}
+
+.#{$-prefix}effect-filter-gray {
+  @include states {
+    @include prefixes(filter, grayscale(1));
+  }
+}
+
+.#{$-prefix}effect-filter-blur-1 {
+  @include states {
+    @include prefixes(filter, blur(1px));
+  }
+}
+
+.#{$-prefix}effect-filter-blur-2 {
+  @include states {
+    @include prefixes(filter, blur(2px));
+  }
+}
+
+.#{$-prefix}effect-filter-blur-3 {
+  @include states {
+    @include prefixes(filter, blur(3px));
+  }
+}
+
+.#{$-prefix}effect-filter-blur-4 {
+  @include states {
+    @include prefixes(filter, blur(4px));
+  }
+}
+
+.#{$-prefix}effect-transition {
+  @include prefixes(transition-property, all);
+}
+
+.#{$-prefix}effect-duration {
+  @include mb-items(transition-duration, $-times2);
+}
+
+.#{$-prefix}anim-duration {
+  @include mb-items(animation-duration, $-times2);
+}
+
+.#{$-prefix}effect-timing-linear {
+  transition-timing-function: linear;
+}
+
+.#{$-prefix}effect-timing-ease {
+  transition-timing-function: ease;
+}
+
+.#{$-prefix}effect-timing-ease-in {
+  transition-timing-function: ease-in;
+}
+
+.#{$-prefix}effect-timing-ease-out {
+  transition-timing-function: ease-out;
+}
+
+.#{$-prefix}effect-timing-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+.#{$-prefix}effect-timing-circle {
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.#{$-prefix}effect-timing-overshoots {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.#{$-prefix}effect-timing-2-pow-10 {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.#{$-prefix}effect-timing-sine {
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.#{$-prefix}effect-timing-pow-2 {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.#{$-prefix}effect-timing-pow-3 {
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.#{$-prefix}effect-timing-pow-4 {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.#{$-prefix}effect-timing-pow-5 {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.#{$-prefix}anim-timing-linear {
+  transition-timing-function: linear;
+}
+
+.#{$-prefix}anim-timing-ease {
+  transition-timing-function: ease;
+}
+
+.#{$-prefix}anim-timing-ease-in {
+  transition-timing-function: ease-in;
+}
+
+.#{$-prefix}anim-timing-ease-out {
+  transition-timing-function: ease-out;
+}
+
+.#{$-prefix}anim-timing-ease-in-out {
+  transition-timing-function: ease-in-out;
+}
+
+.#{$-prefix}anim-timing-circle {
+  transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.#{$-prefix}anim-timing-overshoots {
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.#{$-prefix}anim-timing-2-pow-10 {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.#{$-prefix}anim-timing-sine {
+  transition-timing-function: cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.#{$-prefix}anim-timing-pow-2 {
+  transition-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.#{$-prefix}anim-timing-pow-3 {
+  transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.#{$-prefix}anim-timing-pow-4 {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.#{$-prefix}anim-timing-pow-5 {
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.#{$-prefix}anim-iteration-1 {
+  animation-iteration-count: 1;
+}
+
+.#{$-prefix}anim-iteration-infinite {
+  animation-iteration-count: infinite;
+}
+
+/* Grow effect */
+/* Values: 1, 2, 3, 5, 7 */
+/* Example: -effect-grow-1 -effect-grow-3-hover -effect-grow-2-focus */
+.#{$-prefix}effect-grow {
+  @include mb-items(transform, $-scales);
+}
+
+/* Float effect */
+/* Values: 1, 2, 3, 4, 5 */
+/* Example: --effect-float-1 --effect-float-3-hover --effect-float-2-focus */
+.#{$-prefix}effect-float {
+  @include mb-items(transform, $-float-heights);
+}
+
+/* Skew effect */
+/* Values: 1, 2, 3, 4, 5 */
+/* Example: -effect-skew-1 -effect-skew-3-hover -effect-skew-2-focus */
+.#{$-prefix}effect-skew {
+  @include mb-items(transform, $-skew-degrees);
+}
+
+/* Skew-CCW effect */
+/* Values: 1, 2, 3, 4, 5 */
+/* Example: -effect-skew-ccw-1 -effect-skew-ccw-3-hover -effect-skew-ccw-2-focus */
+.#{$-prefix}effect-skew-ccw {
+  @include mb-items(transform, $-skew-degrees-ccw);
+}
+
+.#{$-prefix}effect-underline {
+  position: relative;
+}
+
+.#{$-prefix}effect-underline:after {
+  display: block;
+  position: absolute;
+  left: 0;
+  bottom: -#{$-anim-underline-height}px;
+  width: 0;
+  height: #{$-anim-underline-height}px;
+  background-color: $-anim-underline-color;
+  content: "";
+  @include prefixes(transition, all #{$-anim-underline-time}s);
+}
+
+.#{$-prefix}effect-underline:hover {
+  color: $-anim-underline-color;
+  font-size: 15px;
+  @include prefixes(transition, all #{$-anim-underline-time}s);
+}
+
+.#{$-prefix}effect-underline:hover:after {
+  width: 100%;
+}
+
+.#{$-prefix}effect-underline.#{$-prefix}effect-underline-rtl:after {
+  right: 0;
+  left: auto;
+}
+
+.#{$-prefix}anim-background {
+  animation: -anim-background 16s ease infinite;
+}
+
+@keyframes -anim-background {
+  0% {
+    background-position: 86% 0%;
+  }
+  50% {
+    background-position: 15% 100%;
+  }
+  100% {
+    background-position: 86% 0%;
+  }
+}
+
+.#{$-prefix}anim-spin {
+  @include complex_items(animation, $-anim-spin-times);
+}
+
+@include keyframes(-anim-spin) {
+  0% {
+    @include prefixes(transform, rotate(0deg));
+  }
+
+  100% {
+    @include prefixes(transform, rotate(359deg));
+  }
+}
+
+.#{$-prefix}anim-spin-ccw {
+  @include complex_items(animation, $-anim-spin-times);
+}
+
+@include keyframes(-anim-spin-ccw) {
+  0% {
+    @include prefixes(transform, rotate(359deg));
+  }
+
+  100% {
+    @include prefixes(transform, rotate(0deg));
+  }
+}
+
+.#{$-prefix}anim-up-down {
+  animation: -anim-up-down 2s ease-in-out infinite;
+}
+
+@keyframes -anim-up-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.#{$-prefix}anim-left-right {
+  animation: -anim-left-right 2s ease-in-out infinite;
+}
+
+@keyframes -anim-left-right {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(15px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.#{$-prefix}anim-move-tlbr {
+  animation: -anim-move-tlbr 2s ease-in-out infinite;
+}
+
+@keyframes -anim-move-tlbr {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.#{$-prefix}anim-move-trbl {
+  animation: -anim-move-trbl 2s ease-in-out infinite;
+}
+
+@keyframes -anim-move-trbl {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.#{$-prefix}effect-dim {
+  @include prefixes(opacity, 1);
+  @include prefixes(transition, opacity 0.15s ease-in);
+}
+
+.#{$-prefix}effect-dim:hover,
+.#{$-prefix}effect-dim:focus {
+  @include prefixes(opacity, 0.5);
+  @include prefixes(transition, opacity 0.15s ease-in);
+}
+
+.#{$-prefix}effect-dim:active {
+  @include prefixes(opacity, 0.8);
+  @include prefixes(transition, opacity 0.15s ease-out);
+}
+
+.#{$-prefix}effect-glow {
+  @include prefixes(transition, opacity 0.15s ease-in);
+}
+
+.#{$-prefix}effect-glow:hover,
+.#{$-prefix}effect-glow:focus {
+  @include prefixes(opacity, 1);
+  @include prefixes(transition, opacity 0.15s ease-in);
+}
+
+.#{$-prefix}t-3d-white {
+  color: #fff;
+  text-shadow: -3px -3px 0 #222, 3px -3px 0 #222, -3px 3px 0 #222,
+    3px 3px 0 #222, 4px 4px 0 #fff, 5px 5px 0 #fff, 6px 6px 0 #fff,
+    7px 7px 0 #fff;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+}
+
+.#{$-prefix}t-3d-black {
+  color: #000;
+  text-shadow: -3px -3px 0 #ddd, 3px -3px 0 #ddd, -3px 3px 0 #ddd,
+    3px 3px 0 #ddd, 4px 4px 0 #000, 5px 5px 0 #000, 6px 6px 0 #000,
+    7px 7px 0 #000;
+  line-height: 0.8em;
+  letter-spacing: 0.1em;
+  transform: scaleY(0.7);
+}
+
+.#{$-prefix}t-3d-gray {
+  color: #555;
+  text-shadow: -0.8px 0px 0px #aaa, 0px -0.5px 0px #777, -1.6px -0.5px 0px #999,
+    -0.8px -1.1px 0px #aaa, -2.4px -1.1px 0px #999, -1.6px -1.7px 0px #aaa,
+    -3.2px -1.7px 0px #999, -2.4px -2.2px 0px #aaa, -4px -2.2px 0px #999,
+    -3.2px -2.8px 0px #555, -4.9px -2.8px 0px #999, -4px -3.4px 0px #aaa,
+    -5.7px -3.4px 0px #999, -4.9px -4px 0px #555, -6.5px -4px 0px #aaa,
+    -5.7px -4.5px 0px #777, -7.3px -4.5px 0px #555, -0.8px 0px 0px #aaa,
+    0px -0.5px 0px #777, -1.6px -0.5px 0px #999, -0.8px -1.1px 0px #aaa,
+    -2.4px -1.1px 0px #999, -1.6px -1.7px 0px #aaa, -3.2px -1.7px 0px #999,
+    -2.4px -2.2px 0px #aaa, -4px -2.2px 0px #999, -3.2px -2.8px 0px #555,
+    -4.9px -2.8px 0px #999, -4px -3.4px 0px #aaa, -5.7px -3.4px 0px #999,
+    -4.9px -4px 0px #555, -6.5px -4px 0px #aaa, -5.7px -4.5px 0px #777,
+    -7.3px -4.5px 0px #555;
+}
+
+.#{$-prefix}btn-pushy {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  display: inline-block;
+  border: none;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 0.5em 1.5em 0.75em;
+  position: relative;
+  vertical-align: middle;
+  @include prefixes(user-select, none);
+  @include prefixes(border-radius, 0.3em);
+  @include prefixes(
+    box-shadow,
+    unquote(
+      "inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05)"
+    )
+  );
+}
+
+.#{$-prefix}btn-pushy:active {
+  margin-top: 0.25em;
+  padding-bottom: 0.5em;
+  @include prefixes(
+    box-shadow,
+    unquote(
+      "inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05)"
+    )
+  );
+}
+
+.#{$-prefix}btn-pushy:active,
+.#{$-prefix}btn-pushy:focus {
+  outline: none;
+}
+/*** END ***/
+
+/* Colors. examples: -t-red (red text color) -bg-blue (blue background) -b-green (green border color) */
+/*** BEGIN ***/
+/*
+*   The `-t` prefix means: text color
+*   Values:
+*   blue,aqua,cyan,teal,green,lime,olive,yellow,orange,brown,
+*   red,pink,fuchsia,purple,maroon,black,gray,white
+*   Add -1, -2, -3, -4, -5 postfixes. the `-1` is the lightest color and the `-5` is the darkest one.
+*   The `transparent` is a valid value too.
+*   Example: -text-green -xl-text-red-1-hover -text-blue-3-focus -text-transparent
+*/
+.#{$-prefix}t {
+  @include items(color, $-colors-map);
+}
+
+/*
+*   The `-bg` prefix means: background color
+*   Values:
+*   blue,aqua,cyan,teal,green,lime,olive,yellow,orange,brown,
+*   red,pink,fuchsia,purple,maroon,black,gray,white
+*   Add -1, -2, -3, -4, -5 postfixes. the `-1` is the lightest color and the `-5` is the darkest one.
+*   The `transparent` is a valid value too.
+*   Example: -bg-green -xl-bg-red-1-hover -bg-blue-3-focus -bg-transparent
+*/
+.#{$-prefix}bg {
+  @include items(background-color, $-colors-map);
+}
+
+/*
+*   The `-b` prefix means: border color
+*   Values:
+*   blue,aqua,cyan,teal,green,lime,olive,yellow,orange,brown,
+*   red,pink,fuchsia,purple,maroon,black,gray,white
+*   Add -1, -2, -3, -4, -5 postfixes. the `-1` is the lightest color and the `-5` is the darkest one.
+*   The `transparent` is a valid value too.
+*   Example: -border-green -xl-border-red-1-hover -border-blue-3-focus -border-transparent
+*/
+.#{$-prefix}b {
+  @include items(border-color, $-colors-map);
+}
+/*** END ***/
+
+/*
+*   Two and Three color gradients
+*   The `-gr` prefix means: gradient
+*   Values:
+*   aqua,lime,yellow,orange,pink
+*   Example: -gr-lime-yellow -gr-orange-pink-lime -gr-yellow-lime -gr-pink-lime-aqua
+*/
+/*** BEGIN ***/
+.#{$-prefix}gr {
+  @include gradient-items-2-color();
+}
+
+.#{$-prefix}gr {
+  @include gradient-items-3-color();
+}
+/*** END ***/
+
+/*
+*   Selection
+*   Values:
+*   aqua,lime,yellow,orange,pink
+*   Example: -gr-lime-yellow -gr-orange-pink-lime -gr-yellow-lime -gr-pink-lime-aqua
+*/
+/*** BEGIN ***/
+.#{$-prefix}t-selection-aqua ::selection {
+  color: $-aqua;
+}
+
+.#{$-prefix}t-selection-lime ::selection {
+  color: $-lime;
+}
+
+.#{$-prefix}t-selection-yellow ::selection {
+  color: $-yellow;
+}
+
+.#{$-prefix}t-selection-orange ::selection {
+  color: $-orange;
+}
+
+.#{$-prefix}t-selection-pink ::selection {
+  color: $-pink;
+}
+
+.#{$-prefix}bg-selection-aqua ::selection {
+  background-color: $-aqua;
+}
+
+.#{$-prefix}bg-selection-lime ::selection {
+  background-color: $-lime;
+}
+
+.#{$-prefix}bg-selection-yellow ::selection {
+  background-color: $-yellow;
+}
+
+.#{$-prefix}bg-selection-orange ::selection {
+  background-color: $-orange;
+}
+
+.#{$-prefix}bg-selection-pink ::selection {
+  background-color: $-pink;
+}
+/*** END ***/
+
+/* Smooth scrolling */
+.#{$-prefix}scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+/* Automatic width and height */
+/*** BEGIN ***/
+.#{$-prefix}w-auto-1 {
+  width: calc(100% - 10px);
+}
+
+.#{$-prefix}w-auto-2 {
+  width: calc(100% / 1.5 - 10px);
+}
+
+.#{$-prefix}w-auto-3 {
+  width: calc(100% / 2 - 10px);
+}
+
+.#{$-prefix}w-auto-4 {
+  width: calc(100% / 2.5 - 10px);
+}
+
+.#{$-prefix}w-auto-5 {
+  width: calc(100% / 3 - 10px);
+}
+
+.#{$-prefix}w-auto-6 {
+  width: calc(100% / 4 - 10px);
+}
+
+.#{$-prefix}w-auto-7 {
+  width: calc(100% / 4.5 - 10px);
+}
+
+.#{$-prefix}w-auto-8 {
+  width: calc(100% / 5 - 10px);
+}
+
+.#{$-prefix}w-auto-9 {
+  width: calc(100% / 5.5 - 10px);
+}
+
+.#{$-prefix}w-auto-10 {
+  width: calc(100% / 6 - 10px);
+}
+
+.#{$-prefix}h-auto-1 {
+  height: calc(100% - 10px);
+}
+
+.#{$-prefix}h-auto-2 {
+  height: calc(100% / 1.5 - 10px);
+}
+
+.#{$-prefix}h-auto-3 {
+  height: calc(100% / 2 - 10px);
+}
+
+.#{$-prefix}h-auto-4 {
+  height: calc(100% / 2.5 - 10px);
+}
+
+.#{$-prefix}h-auto-5 {
+  height: calc(100% / 3 - 10px);
+}
+
+.#{$-prefix}h-auto-6 {
+  height: calc(100% / 4 - 10px);
+}
+
+.#{$-prefix}h-auto-7 {
+  height: calc(100% / 4.5 - 10px);
+}
+
+.#{$-prefix}h-auto-8 {
+  height: calc(100% / 5 - 10px);
+}
+
+.#{$-prefix}h-auto-9 {
+  height: calc(100% / 5.5 - 10px);
+}
+
+.#{$-prefix}h-auto-10 {
+  height: calc(100% / 6 - 10px);
+}
+/*** END ***/
+
+/*  Rows and columns of grid system
+*   Example:
+*   <div class="-container">
+*       <div class="-f">
+*           <div class="-pr-3 -f-item -f-span-auto -h-4 -bg-red-1"> ... </div>
+*           <div class="-px-3 -f-item -f-span-auto -h-4 -bg-blue-2"> ... </div>
+*           <div class="-px-3 -f-item -f-span-auto -h-4 -bg-green-3"> ... </div>
+*           <div class="-pl-3 -f-item -f-span-auto -h-4 -bg-yellow-4"> ... </div>
+*       </div>
+*       <div class="-f">
+*           <div class="-px-5 -f-item -span-4 -xl-span-5 -h-4 -w-3 -bg-red-2"> ... </div>
+*           <div class="-px-5 -f-item -span-4 -xl-span-3 -h-4 -w-3 -bg-blue-3"> ... </div>
+*           <div class="-px-5 -f-item -span-4 -h-4 -w-3 -bg-green-5"> ... </div>
+*       </div>
+*   </div>
+*/
+/*** BEGIN ***/
+.#{$-prefix}container {
+  max-width: none;
+  margin: 0 auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.#{$-prefix}container:after {
+  content: " \0020 ";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+.#{$-prefix}f {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 1px;
+  margin: 0;
+  padding: 0;
+}
+
+.#{$-prefix}f-item {
+  display: block;
+  flex: 0 1 auto;
+  min-height: 1px;
+  margin: 0;
+  padding: 0;
+}
+/*** END ***/
+
+/* Flex grid based on flexbox (for modern browsers) */
+/*** BEGIN ***/
+.#{$-prefix}d-flex {
+  // Flex container
+  //display: -webkit-box;
+  //display: -moz-box;
+  //display: -ms-flexbox;
+  //display: -webkit-flex;
+  display: flex;
+}
+.#{$-prefix}f-dir-row {
+  @include flex_prefixes(flex-direction, row);
+}
+.#{$-prefix}f-dir-col {
+  @include flex_prefixes(flex-direction, column);
+}
+.#{$-prefix}f-dir-row-reverse {
+  @include flex_prefixes(flex-direction, row-reverse);
+}
+.#{$-prefix}f-dir-col-reverse {
+  @include flex_prefixes(flex-direction, column-reverse);
+}
+.#{$-prefix}f-start {
+  @include flex_prefixes(justify-content, flex-start);
+}
+.#{$-prefix}f-end {
+  @include flex_prefixes(justify-content, flex-end);
+}
+.#{$-prefix}f-center {
+  @include flex_prefixes(justify-content, center);
+}
+.#{$-prefix}f-between {
+  @include flex_prefixes(justify-content, space-between);
+}
+.#{$-prefix}f-around {
+  @include flex_prefixes(justify-content, space-around);
+}
+.#{$-prefix}f-evenly {
+  @include flex_prefixes(justify-content, space-evenly);
+}
+.#{$-prefix}f-content-start {
+  @include flex_prefixes(align-content, flex-start);
+}
+.#{$-prefix}f-content-end {
+  @include flex_prefixes(align-content, flex-end);
+}
+.#{$-prefix}f-content-center {
+  @include flex_prefixes(align-content, center);
+}
+.#{$-prefix}f-content-stretch {
+  @include flex_prefixes(align-content, stretch);
+}
+.#{$-prefix}f-content-between {
+  @include flex_prefixes(align-content, space-between);
+}
+.#{$-prefix}f-content-around {
+  @include flex_prefixes(align-content, space-around);
+}
+.#{$-prefix}f-content-evenly {
+  @include flex_prefixes(align-content, space-evenly);
+}
+.#{$-prefix}f-items-start {
+  @include flex_prefixes(align-items, flex-start);
+}
+.#{$-prefix}f-items-end {
+  @include flex_prefixes(align-items, flex-end);
+}
+.#{$-prefix}f-items-center {
+  @include flex_prefixes(align-items, center);
+}
+.#{$-prefix}f-items-stretch {
+  @include flex_prefixes(align-items, stretch);
+}
+.#{$-prefix}f-items-baseline {
+  @include flex_prefixes(align-items, baseline);
+}
+
+/* Flex-box grow factor */
+/* Values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 */
+/* Example: -f-item-grow-3 */
+.#{$-prefix}f-item-grow {
+  @include items(flex-grow, $-flex-scales, false);
+}
+
+/* Flex-box shrink factor */
+/* Values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 */
+/* Example: -f-item-shrink-3 */
+.#{$-prefix}f-item-shrink {
+  @include items(flex-shrink, $-flex-scales, false);
+}
+
+/* The position of the item */
+/* Values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 */
+/* Example: -f-item-order-3 */
+.#{$-prefix}f-item-order {
+  @include orders();
+}
+/*** END ***/
+
+/*
+*   Screen layouts
+*   Values:
+*   without prefix (All screens), -sm (small and larger),
+*   -md (medium and larger), -lg (large and extra large), 
+*   -xl (extra large, extra extra large), -xxl (extra extra large)
+*/
+@include grid(unquote(""), $-grid-columns-count);
+@include classes(unquote(""));
+
+.#{$-prefix}container {
+  width: 100%;
+}
+
+@media (min-width: 576px) {
+  .#{$-prefix}container {
+    width: 576px;
+  }
+
+  @include grid(sm, $-grid-columns-count);
+  @include classes(sm);
+}
+
+@media (min-width: 768px) {
+  .#{$-prefix}container {
+    width: 768px;
+  }
+
+  @include grid(md, $-grid-columns-count);
+  @include classes(md);
+}
+
+@media (min-width: 992px) {
+  .#{$-prefix}container {
+    width: 992px;
+  }
+
+  @include grid(lg, $-grid-columns-count);
+  @include classes(lg);
+}
+
+@media (min-width: 1200px) {
+  .#{$-prefix}container {
+    width: 1200px;
+  }
+
+  @include grid(xl, $-grid-columns-count);
+  @include classes(xl);
+}
+
+@media (min-width: 1400px) {
+  .#{$-prefix}container {
+    width: 1400px;
+  }
+
+  @include grid(xxl, $-grid-columns-count);
+  @include classes(xxl);
+}
