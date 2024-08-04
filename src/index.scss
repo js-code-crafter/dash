@@ -1,4 +1,4 @@
-@import "dash-mixins";
+@import "mixins";
 
 /*
 *   Dash
@@ -7,7 +7,7 @@
 */
 
 /* Unstyled element format. For example it can changes a link to look like as a normal text. */
-/* Example: -unstyled, -unstyled-hover, -unstyled-focus */
+/* Usage: -unstyled */
 .#{$-prefix}unstyled,
 .#{$-prefix}unstyled * {
   text-decoration: none;
@@ -54,11 +54,11 @@
   }
 }
 
-/*** BEGIN ***/
 /* Text decoration formats */
 
+/*** BEGIN ***/
 /* Underlined text */
-/* Example: -underline -underline-hover -underline-focus */
+/* Example: -t-underline -t-underline-hover -t-underline-focus */
 .#{$-prefix}t-underline {
   @include states {
     text-decoration: underline;
@@ -77,19 +77,19 @@
   }
 }
 
-.#{$-prefix}t-underline {
+.#{$-prefix}t-dashed {
   @include states {
     text-decoration: dashed;
   }
 }
 
-.#{$-prefix}t-underline {
+.#{$-prefix}t-dotted {
   @include states {
     text-decoration: dotted;
   }
 }
 
-.#{$-prefix}t-underline {
+.#{$-prefix}t-double {
   @include states {
     text-decoration: double;
   }
@@ -114,8 +114,8 @@
 }
 /*** END ***/
 
-/*** BEGIN ***/
 /* Text transform */
+/*** BEGIN ***/
 .#{$-prefix}t-lowercase {
   @include states {
     text-transform: lowercase;
@@ -465,7 +465,7 @@
   page-break-before: always;
 }
 
-.#{$-prefix}t-no-wrap {
+.#{$-prefix}t-nowrap {
   white-space: nowrap;
 }
 
@@ -988,6 +988,7 @@
   }
 }
 
+/* Diagonal move from top-left to bottom-right */
 .#{$-prefix}anim-move-tlbr {
   animation: -anim-move-tlbr 2s ease-in-out infinite;
 }
@@ -1004,6 +1005,7 @@
   }
 }
 
+/* Diagonal move from top-right to bottom-left */
 .#{$-prefix}anim-move-trbl {
   animation: -anim-move-trbl 2s ease-in-out infinite;
 }
@@ -1469,7 +1471,7 @@
 *   Screen layouts
 *   Values:
 *   without prefix (All screens), -sm (small and larger),
-*   -md (medium and larger), -lg (large and extra large), 
+*   -md (medium and larger), -lg (large and extra large),
 *   -xl (extra large, extra extra large), -xxl (extra extra large)
 */
 @include grid(unquote(""), $-grid-columns-count);
