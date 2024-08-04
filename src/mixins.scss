@@ -1,0 +1,995 @@
+@use "sass:math";
+@import "dash-config";
+
+//
+//   Dash
+//   A simple, lite-weight and powerful CSS framework
+//   version: 1.0.0
+//
+
+// ------ Mixins ------
+
+// Assign values to the `$-colors-map` variable
+$-colors-map: ();
+@each $key, $value in $-colors {
+  $-temp-map-1: ();
+  $-temp-map-2: ();
+  $-temp-map-3: ();
+  $-temp-map-4: ();
+  $-temp-map-5: ();
+  $-temp-map-3: map-merge($-temp-map-3, (#{$key}-3: $value));
+  $-temp-map-2: map-merge($-temp-map-2, (#{$key}-2: lighten($value, 10%)));
+  $-temp-map-4: map-merge($-temp-map-4, (#{$key}-4: darken($value, 10%)));
+  $-temp-map-1: map-merge($-temp-map-1, (#{$key}-1: lighten($value, 20%)));
+  $-temp-map-5: map-merge($-temp-map-5, (#{$key}-5: darken($value, 20%)));
+  $-colors-map: map-merge($-colors-map, $-temp-map-1);
+  $-colors-map: map-merge($-colors-map, $-temp-map-2);
+  $-colors-map: map-merge($-colors-map, $-temp-map-3);
+  $-colors-map: map-merge($-colors-map, $-temp-map-4);
+  $-colors-map: map-merge($-colors-map, $-temp-map-5);
+}
+$-colors-map: map-merge(
+  $-colors-map,
+  (
+    "transparent": transparent,
+  )
+);
+
+@mixin gradient-items-2-color($items: $-light-colors, $states: true) {
+  @each $index1, $item1 in $items {
+    $color1-2: lighten($item1, 10%);
+    $color1-1: lighten($color1-2, 10%);
+    $color1-3: $item1;
+    $color1-4: darken($item1, 10%);
+    $color1-5: darken($color1-4, 10%);
+    @each $index2, $item2 in $items {
+      @if ($index1 != $index2) {
+        $color2-2: lighten($item2, 10%);
+        $color2-1: lighten($color2-2, 10%);
+        $color2-3: $item2;
+        $color2-4: darken($item2, 10%);
+        $color2-5: darken($color2-4, 10%);
+        @if $states {
+          &-#{$index1}-#{$index2} {
+            @include states {
+              background-image: linear-gradient(
+                to right top,
+                $color1-5,
+                $color1-4,
+                $color1-3,
+                $color1-2,
+                $color1-1,
+                $color2-1,
+                $color2-2,
+                $color2-3,
+                $color2-4,
+                $color2-5
+              );
+            }
+          }
+        } @else {
+          &-#{$index1}-#{$index2} {
+            background-image: linear-gradient(
+              to right top,
+              $color1-5,
+              $color1-4,
+              $color1-3,
+              $color1-2,
+              $color1-1,
+              $color2-1,
+              $color2-2,
+              $color2-3,
+              $color2-4,
+              $color2-5
+            );
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin gradient-items-3-color($items: $-light-colors, $states: true) {
+  @each $index1, $item1 in $items {
+    $color1-2: lighten($item1, 10%);
+    $color1-1: lighten($color1-2, 10%);
+    $color1-3: $item1;
+    $color1-4: darken($item1, 10%);
+    $color1-5: darken($color1-4, 10%);
+    @each $index2, $item2 in $items {
+      @if ($index1 != $index2) {
+        $color2-2: lighten($item2, 10%);
+        $color2-1: lighten($color2-2, 10%);
+        $color2-3: $item2;
+        $color2-4: darken($item2, 10%);
+        $color2-5: darken($color2-4, 10%);
+        @each $index3, $item3 in $items {
+          @if ($index1 != $index3 and $index2 != $index3) {
+            $color3-2: lighten($item3, 10%);
+            $color3-1: lighten($color3-2, 10%);
+            $color3-3: $item3;
+            $color3-4: darken($item3, 10%);
+            $color3-5: darken($color3-4, 10%);
+            @if $states {
+              &-#{$index1}-#{$index2}-#{$index3} {
+                @include states {
+                  background-image: linear-gradient(
+                    to right top,
+                    $color1-5,
+                    $color1-4,
+                    $color1-3,
+                    $color1-2,
+                    $color1-1,
+                    $color2-1,
+                    $color2-2,
+                    $color2-3,
+                    $color2-4,
+                    $color2-5,
+                    $color3-5,
+                    $color3-4,
+                    $color3-3,
+                    $color3-2,
+                    $color3-1
+                  );
+                }
+              }
+            } @else {
+              &-#{$index1}-#{$index2}-#{$index3} {
+                background-image: linear-gradient(
+                  to right top,
+                  $color1-5,
+                  $color1-4,
+                  $color1-3,
+                  $color1-2,
+                  $color1-1,
+                  $color2-1,
+                  $color2-2,
+                  $color2-3,
+                  $color2-4,
+                  $color2-5,
+                  $color3-5,
+                  $color3-4,
+                  $color3-3,
+                  $color3-2,
+                  $color3-1
+                );
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin mb-sizes($property, $items, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          @include prefixes($property, #{$item}px);
+        }
+      }
+    } @else {
+      &-#{$index} {
+        @include prefixes($property, #{$item}px);
+      }
+    }
+  }
+}
+
+@mixin states {
+  //
+  //  The `states` mixin inserts hover status (by appending `-hover` to the class)
+  //  and focus behavior (by appending `-focus` to the class) to the class.
+  //  For example -*-hover affects when the mouse is hover over of the element and
+  //  -*-focus when the focus is on the element. (The `*` is any class element.)
+  //
+  &,
+  &-hover:hover,
+  &-focus:focus {
+    @content;
+  }
+}
+
+@mixin input-states {
+  &,
+  &-focus:focus,
+  &-hover:hover {
+    @content;
+  }
+}
+
+@mixin fonts($sizes: $-font-sizes, $line-heights: $-font-heights) {
+  @for $i from 1 to length($sizes) + 1 {
+    &-#{nth($sizes,$i)} {
+      @include states {
+        font-size: #{nth($sizes, $i)}px;
+        line-height: #{nth($line-heights, $i)}px;
+      }
+    }
+  }
+}
+
+@mixin sizes($property, $items: $-small-sizes, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          #{$property}: #{$item}px;
+          @content;
+        }
+      }
+    } @else {
+      &-#{$index} {
+        #{$property}: #{$item}px;
+        @content;
+      }
+    }
+  }
+}
+@mixin sizes2($property, $items: $-small-sizes, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          #{$property}: $item;
+          @content;
+        }
+      }
+    } @else {
+      &-#{$index} {
+        #{$property}: $item;
+        @content;
+      }
+    }
+  }
+}
+@mixin items($property, $items, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          #{$property}: $item;
+          @content;
+        }
+      }
+    } @else {
+      &-#{$index} {
+        #{$property}: $item;
+        @content;
+      }
+    }
+  }
+}
+@mixin complex_items($property, $items, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          #{$property}: unquote($item);
+          @content;
+        }
+      }
+    } @else {
+      &-#{$index} {
+        #{$property}: unquote($item);
+        @content;
+      }
+    }
+  }
+}
+
+@mixin orders() {
+  @each $index, $item in $-orders {
+    @if $item==null {
+      $item: $index;
+    } @else {
+      &-#{$index} {
+        // -ms-flex-order: $item;
+        // -webkit-box-ordinal-group: $item;
+        // -moz-box-ordinal-group: $item;
+        // -webkit-order: $item;
+        order: $item;
+        @content;
+      }
+    }
+  }
+}
+
+@mixin prefixes($property, $value) {
+  // -o-#{$property}: $value;
+  // -ms-#{$property}: $value;
+  // -moz-#{$property}: $value;
+  // -webkit-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin flex_prefixes($property, $value) {
+  // -o-#{$property}: $value;
+  // -ms-flex-#{$property}: $value;
+  // -moz-box-#{$property}: $value;
+  // -webkit-box-#{$property}: $value;
+  // -ms-#{$property}: $value;
+  // -moz-#{$property}: $value;
+  // -webkit-#{$property}: $value;
+  #{$property}: $value;
+}
+
+@mixin mb-sizes($property, $items, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          @include prefixes($property, #{$item}px);
+        }
+      }
+    } @else {
+      &-#{$index} {
+        @include prefixes($property, #{$item}px);
+      }
+    }
+  }
+}
+
+@mixin mb-items($property, $items, $states: true) {
+  @each $index, $item in $items {
+    @if $item==null {
+      $item: $index;
+    }
+    @if $states {
+      &-#{$index} {
+        @include states {
+          @include prefixes($property, $item);
+        }
+      }
+    } @else {
+      &-#{$index} {
+        @include prefixes($property, $item);
+      }
+    }
+  }
+}
+
+@mixin keyframes($animation) {
+  // @-o-keyframes #{$animation} {
+  //   @content;
+  // }
+  // @-moz-keyframes #{$animation} {
+  //   @content;
+  // }
+  // @-webkit-keyframes #{$animation} {
+  //   @content;
+  // }
+  @keyframes #{$animation} {
+    @content;
+  }
+}
+
+@mixin grid($name, $columns) {
+  .#{$name}span-0 {
+    display: none;
+  }
+  .#{$name}span-auto {
+    flex-grow: 1;
+  }
+  @for $i from 1 to $columns + 1 {
+    .#{$name}span-#{$i} {
+      width: #{math.div($i, $columns) * 100%};
+    }
+  }
+}
+
+@mixin classes($prefix, $screen-size: "") {
+  /* Center alignment */
+  /* Example: -t-center -t-center-hover -sm-t-center-focus */
+  .#{$prefix}#{$screen-size}t-center {
+    text-align: center;
+  }
+
+  /* Left alignment */
+  /* Example: -t-left -md-t-left-hover -t-left-focus */
+  .#{$prefix}#{$screen-size}t-left {
+    text-align: left;
+  }
+
+  /* Right alignment */
+  /* Example: -t-right -t-right-hover -lg-t-right-focus*/
+  .#{$prefix}#{$screen-size}t-right {
+    text-align: right;
+  }
+
+  /* Justified text */
+  /* Example: -t-justify -md-t-justify-hover -t-justify-focus */
+  .#{$prefix}#{$screen-size}t-justify {
+    text-align: justify;
+  }
+
+  /* Center both horizontally and vertically */
+  .#{$prefix}#{$screen-size}center {
+    text-align: center;
+    margin: auto;
+    vertical-align: middle;
+  }
+
+  /* Align vertically */
+  /* Example: -md-vertical-middle -vertical-top -vertical-bottom */
+  .#{$prefix}#{$screen-size}vertical {
+    @include items(vertical-align, (top, middle, bottom));
+  }
+
+  /* Width 100% */
+  .#{$prefix}#{$screen-size}w-full {
+    width: 100%;
+  }
+
+  /* Height 100% */
+  .#{$prefix}#{$screen-size}h-full {
+    height: 100%;
+  }
+
+  /* Width 100vw */
+  .#{$prefix}#{$screen-size}w-screen {
+    width: 100vw;
+  }
+
+  /* Height 100vh */
+  .#{$prefix}#{$screen-size}h-screen {
+    height: 100vh;
+  }
+
+  /* Full screen */
+  .#{$prefix}#{$screen-size}screen {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  /* Width and height, 100% */
+  .#{$prefix}#{$screen-size}full {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* No margin and padding */
+  .#{$prefix}#{$screen-size}pressed {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Z-index */
+  /* Example: -z-1-front -md-z-2-back */
+  .#{$prefix}#{$screen-size}z {
+    @include items(z-index, $-z-indices, false);
+  }
+
+  /* Scrollbar status */
+  /*** BEGIN ***/
+  /* Hides the scroll-bars */
+  .#{$prefix}#{$screen-size}scroll-hidden {
+    overflow: hidden;
+  }
+
+  /* Shows the browser scroll-bars when needed. */
+  .#{$prefix}#{$screen-size}scroll {
+    overflow: auto;
+  }
+
+  /* Shows the horizontal scroll-bar when needed. */
+  .#{$prefix}#{$screen-size}scroll-x {
+    overflow-x: auto;
+  }
+
+  /* Shows the vertical scroll-bar when needed. */
+  .#{$prefix}#{$screen-size}scroll-y {
+    overflow-y: auto;
+  }
+  /*** END ***/
+
+  /* Floats the element to the right side */
+  .#{$prefix}#{$screen-size}float-right {
+    float: right;
+  }
+
+  /* Floats the element to the left side */
+  .#{$prefix}#{$screen-size}float-left {
+    float: left;
+  }
+
+  /* Normal position */
+  .#{$prefix}#{$screen-size}float-none {
+    float: none;
+  }
+
+  /*
+  *  Font size
+  *  Example:
+  *  <div class='-font-9'>The font size of this text is 9.</div>
+  *  <div class='-font-11-hover'>The font size of this text is 11 when the mouse hovers.</div>
+  *
+  */
+  /* Values: 0, 9, 11, 13, 16, 24, 32, 48, 64, 90, 128 */
+  /* Example: -font-24 -md-font-16-hover -sm-font-13-focus */
+  .#{$prefix}#{$screen-size}font {
+    @include fonts;
+  }
+  /*
+  *  The `line-height` sizes
+  *  Example:
+  *  <div class='-line-11'>The line height of this text is 11.</div>
+  *  <div class='-line-14-hover'>The line height of this text is 14 when the mouse hovers.</div>
+  */
+  /* Values: 0, 11, 14, 16, 21, 30, 38, 55, 72, 100, 140 */
+  /* Example: -line-14 -md-line-11-hover -line-21-focus */
+  .#{$prefix}#{$screen-size}line {
+    @include sizes(line-height);
+  }
+  /* Initial line height */
+  .#{$prefix}#{$screen-size}line-inherit {
+    @include states {
+      line-height: inherit;
+    }
+  }
+  /* Normal line height */
+  .#{$prefix}#{$screen-size}line-normal {
+    @include states {
+      line-height: normal;
+    }
+  }
+  /* Hidden element */
+  .#{$prefix}#{$screen-size}d-hidden {
+    @include states {
+      display: none;
+    }
+  }
+  /* Ghost element */
+  .#{$prefix}#{$screen-size}d-blank {
+    @include states {
+      visibility: hidden;
+    }
+  }
+  /* Hidden element. */
+  /* For Example, hides a row of a table without resizing its columns. */
+  .#{$prefix}#{$screen-size}d-collapse {
+    @include states {
+      visibility: collapse;
+    }
+  }
+  /* Container behavior */
+  .#{$prefix}#{$screen-size}d-block {
+    @include states {
+      display: block;
+    }
+  }
+  /* Box effects */
+  /*** BEGIN ***/
+  /* Values: 0, 5, 10, 15, 25, 35, 50, 65, 75, 85, 90, 95 */
+  /* Example: -opacity-5 -opacity-15-hover -opacity-35-focus */
+  .#{$prefix}#{$screen-size}opacity {
+    @include mb-items(opacity, $-opacity-levels);
+  }
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -shadow-1 -md-shadow-2-hover */
+  .#{$prefix}#{$screen-size}shadow {
+    @include mb-items(box-shadow, $-shadows);
+  }
+  // `rb` means: right-bottom
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -md-shadow-rt-5 -shadow-rt-4-hover */
+  .#{$prefix}#{$screen-size}shadow-rt {
+    @include mb-items(box-shadow, $-shadows-rt);
+  }
+  // `lb` means: left-bottom
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -shadow-lt-6 -md-shadow-lt-2-hover */
+  .#{$prefix}#{$screen-size}shadow-lt {
+    @include mb-items(box-shadow, $-shadows-lt);
+  }
+  // `rb` means: right-bottom
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -md-shadow-rb-3 -shadow-rb-1-hover */
+  .#{$prefix}#{$screen-size}shadow-rb {
+    @include mb-items(box-shadow, $-shadows-rb);
+  }
+  // `lb` means: left-bottom
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -shadow-lb-2 -md-shadow-lb-4-hover */
+  .#{$prefix}#{$screen-size}shadow-lb {
+    @include mb-items(box-shadow, $-shadows-lb);
+  }
+  /* Values: 1, 2, 3, 4, 5, 6 */
+  /* Example: -text-shadow-1 -md-text-shadow-2-hover */
+  .#{$prefix}#{$screen-size}text-shadow {
+    @include mb-items(text-shadow, $-text-shadows);
+  }
+  /*** END ***/
+  /* Border radius. example: -rounded-1 (border size: 3px), -rounded-2-hover (border size 5px on mouse hover)*/
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -rounded-5 -rounded-3-hover -md-rounded-10-focus */
+  .#{$prefix}#{$screen-size}b-rounded {
+    @include mb-sizes(border-radius, $-small-sizes);
+  }
+  /* Border */
+  /*** BEGIN ***/
+  .#{$prefix}#{$screen-size}b {
+    @include states {
+      border: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-none {
+    @include states {
+      border: none;
+    }
+  }
+  .#{$prefix}#{$screen-size}bt {
+    @include states {
+      border-top: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}bb {
+    @include states {
+      border-left: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}br {
+    @include states {
+      border-right: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}bl {
+    @include states {
+      border-left: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}bx {
+    @include states {
+      border-left: solid 1px #ddd;
+      border-right: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}by {
+    @include states {
+      border-top: solid 1px #ddd;
+      border-bottom: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-1 {
+    @include states {
+      border-width: 1px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-2 {
+    @include states {
+      border-width: 2px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-3 {
+    @include states {
+      border-width: 3px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-4 {
+    @include states {
+      border-width: 4px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-5 {
+    @include states {
+      border-width: 5px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-6 {
+    @include states {
+      border-width: 6px;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-dotted {
+    @include states {
+      border-style: dotted;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-dashed {
+    @include states {
+      border-style: dashed;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-solid {
+    @include states {
+      border-style: solid;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-double {
+    @include states {
+      border-style: double;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-ridge {
+    @include states {
+      border-style: ridge;
+    }
+  }
+  .#{$prefix}#{$screen-size}b-groove {
+    @include states {
+      border-style: groove;
+    }
+  }
+  /*** END ***/
+
+  /* Outline */
+  /*** BEGIN ***/
+  .#{$prefix}#{$screen-size}outline {
+    @include states {
+      outline: solid 1px #ddd;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-none {
+    @include states {
+      outline: none;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-1 {
+    @include states {
+      outline-width: 1px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-2 {
+    @include states {
+      outline-width: 2px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-3 {
+    @include states {
+      outline-width: 3px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-4 {
+    @include states {
+      outline-width: 4px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-5 {
+    @include states {
+      outline-width: 5px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-6 {
+    @include states {
+      outline-width: 6px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-offset-1 {
+    @include states {
+      outline-offset: 1px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-offset-2 {
+    @include states {
+      outline-offset: 2px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-offset-3 {
+    @include states {
+      outline-offset: 3px;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-dotted {
+    @include states {
+      outline-style: dotted;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-dashed {
+    @include states {
+      outline-style: dashed;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-solid {
+    @include states {
+      outline-style: solid;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-double {
+    @include states {
+      outline-style: double;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-ridge {
+    @include states {
+      outline-style: ridge;
+    }
+  }
+  .#{$prefix}#{$screen-size}outline-groove {
+    @include states {
+      outline-style: groove;
+    }
+  }
+  /*** END ***/
+
+  /*
+  *   Height sizes
+  *   Example: -md-h-hover-50 (height: 50px), -h-100-hover (height: 100px on mouse hover)
+  *   Values: 0, 3, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90,
+  *   100, 120, 140, 160, 180, 200, 250, 300, 350, 400, 500, sm, md, lg, lx, lxx, 1600px
+  *   Example: -h-5px -h-20px-hover -md-h-160px-focus
+  */
+  .#{$prefix}#{$screen-size}h {
+    @include sizes(height, $-sizes);
+  }
+  /*
+  *   Width sizes
+  *   Example: -md-w-hover-50 (width: 50px), -w-100-hover (width: 100px on mouse hover)
+  *   Values: 0, 3, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90,
+  *   100, 120, 140, 160, 180, 200, 250, 300, 350, 400, 500, sm, md, lg, lx, lxx, 1600px
+  *   Example: -w-5px -w-20px-hover -md-w-160px-focus
+  */
+  .#{$prefix}#{$screen-size}w {
+    @include sizes(width, $-sizes);
+  }
+  /*
+  *   The max-width sizes
+  *   Example: -md-mw-hover-50 (width: 50px), -mw-100-hover (width: 100px on mouse hover)
+  *   Values: 0, 3, 5, 7, 10, 15, 20, 25, 30, 35, 40, 45, 50, 60, 70, 80, 90,
+  *   100, 120, 140, 160, 180, 200, 250, 300, 350, 400, 500, sm, md, lg, lx, lxx, 1600px
+  *   Example: -mw-5px -mw-20px-hover -md-mw-160px-focus
+  */
+  .#{$prefix}#{$screen-size}mw {
+    @include sizes(width, $-sizes, false);
+  }
+  /* Margin and padding sizes */
+  /*** BEGIN ***/
+
+  /* Top margin */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -mt-3px -lx-mt-5px-hover -mt-10px-focus */
+  .#{$prefix}#{$screen-size}mt,
+  .#{$prefix}#{$screen-size}my {
+    @include sizes2(margin-top, $-small-sizes2, false);
+  }
+  /* Right margin */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -mr-3px -lx-mr-5px-hover -mr-10px-focus */
+  .#{$prefix}#{$screen-size}mr,
+  .#{$prefix}#{$screen-size}mx {
+    @include sizes2(margin-right, $-small-sizes2, false);
+  }
+  /* Bottom margin */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -mb-3px -lx-mb-5px-hover -mb-10px-focus */
+  .#{$prefix}#{$screen-size}mb,
+  .#{$prefix}#{$screen-size}my {
+    @include sizes2(margin-bottom, $-small-sizes2, false);
+  }
+  /* Left margin */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -ml-3px -lx-ml-5px-hover -ml-10px-focus */
+  .#{$prefix}#{$screen-size}ml,
+  .#{$prefix}#{$screen-size}mx {
+    @include sizes2(margin-left, $-small-sizes2, false);
+  }
+  /* Left and right margins */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -mx-3px -lx-mx-5px-hover -mx-10px-focus */
+  /*
+  * .#{$prefix}#{$screen-size}mx {
+  *   @include sizes2(margin-left, $-small-sizes2);
+  *   @include sizes2(margin-right, $-small-sizes2);
+  * }
+  */
+  /* Top and bottom margins */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -my-3px -lx-my-5px-hover -my-10px-focus */
+  /*
+  * .#{$prefix}#{$screen-size}my {
+  *   @include sizes2(margin-top, $-small-sizes2);
+  *   @include sizes2(margin-bottom, $-small-sizes2);
+  * }
+  */
+  /* Box margins, all sides */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -m-3px */
+  .#{$prefix}#{$screen-size}m {
+    @include sizes2(margin, $-small-sizes2, false);
+  }
+
+  /* Top padding */
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -pt-3px */
+  .#{$prefix}#{$screen-size}pt,
+  .#{$prefix}#{$screen-size}py {
+    @include sizes2(padding-top, $-small-sizes, false);
+  }
+  /* Right padding */
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -pr-3px */
+  .#{$prefix}#{$screen-size}pr,
+  .#{$prefix}#{$screen-size}px {
+    @include sizes2(padding-right, $-small-sizes, false);
+  }
+  /* Bottom padding */
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -pb-3px */
+  .#{$prefix}#{$screen-size}pb,
+  .#{$prefix}#{$screen-size}py {
+    @include sizes2(padding-bottom, $-small-sizes, false);
+  }
+  /* Left padding */
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -pl-3px */
+  .#{$prefix}#{$screen-size}pl,
+  .#{$prefix}#{$screen-size}px {
+    @include sizes2(padding-left, $-small-sizes, false);
+  }
+  /* Left and right margins */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -px-3px */
+  /*
+  * .#{$prefix}#{$screen-size}px {
+  *   @include sizes2(margin-left, $-small-sizes2);
+  *   @include sizes2(margin-right, $-small-sizes2);
+  * }
+  */
+  /* Top and bottom margins */
+  /* Values: auto, 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -py-3 */
+  /*
+  * .#{$prefix}#{$screen-size}py {
+  *   @include sizes2(margin-top, $-small-sizes2);
+  *   @include sizes2(margin-bottom, $-small-sizes2);
+  * }
+  */
+  /* Box paddings, all sides */
+  /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
+  /* Example: -p-3px */
+  .#{$prefix}#{$screen-size}p {
+    @include sizes2(padding, $-small-sizes, false);
+  }
+  /*** END ***/
+
+  /* Flex grid based on flexbox (for modern browsers) */
+  /*** BEGIN ***/
+  .#{$prefix}#{$screen-size}f-wrap {
+    @include flex_prefixes(flex-wrap, wrap);
+  }
+  .#{$prefix}#{$screen-size}f-wrap-reverse {
+    @include flex_prefixes(flex-wrap, wrap-reverse);
+  }
+  .#{$prefix}#{$screen-size}f-row-gap {
+    @include items(row-gap, $-small-sizes, false);
+  }
+  .#{$prefix}#{$screen-size}f-col-gap {
+    @include items(column-gap, $-small-sizes, false);
+  }
+  .#{$prefix}#{$screen-size}f-item-start {
+    @include flex_prefixes(align-self, flex-start);
+  }
+  .#{$prefix}#{$screen-size}f-item-end {
+    @include flex_prefixes(align-self, flex-end);
+  }
+  .#{$prefix}#{$screen-size}f-item-center {
+    @include flex_prefixes(align-self, center);
+  }
+  .#{$prefix}#{$screen-size}f-item-stretch {
+    @include flex_prefixes(align-self, stretch);
+  }
+  .#{$prefix}#{$screen-size}f-item-baseline {
+    @include flex_prefixes(align-self, baseline);
+  }
+
+  /*** END ***/
+}
