@@ -291,7 +291,7 @@ $-colors-map: map-merge(
   }
 }
 
-/// Sizes in pixel
+/// Sizes in rem
 ///
 /// @param {string} $property
 ///   A CSS property
@@ -299,7 +299,7 @@ $-colors-map: map-merge(
 ///   Sizes for the specified property
 /// @param {boolean} $states
 ///   Adds hover and focus states to the class if set to true
-@mixin sizes_in_pixel($property, $items: $-small-sizes, $states: true) {
+@mixin sizes_in_rem($property, $items: $-small-sizes, $states: true) {
   @each $index, $item in $items {
     @if $item==null {
       $item: $index;
@@ -307,13 +307,13 @@ $-colors-map: map-merge(
     @if $states {
       &-#{$index} {
         @include states {
-          #{$property}: #{$item}px;
+          #{$property}: #{$item}rem;
           @content;
         }
       }
     } @else {
       &-#{$index} {
-        #{$property}: #{$item}px;
+        #{$property}: #{$item}rem;
         @content;
       }
     }
@@ -330,8 +330,8 @@ $-colors-map: map-merge(
   @for $i from 1 to length($sizes) + 1 {
     &-#{nth($sizes,$i)} {
       @include states {
-        font-size: #{nth($sizes, $i)}px;
-        line-height: #{nth($line-heights, $i)}px;
+        font-size: #{nth($sizes, $i)}rem;
+        line-height: #{nth($line-heights, $i)}rem;
       }
     }
   }
@@ -655,32 +655,32 @@ $-colors-map: map-merge(
   }
   .#{$-prefix}.#{$grid-prefix}-b-1 {
     @include states {
-      border-width: 1px;
+      border-width: 0.0625rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-2 {
     @include states {
-      border-width: 2px;
+      border-width: 0.125rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-3 {
     @include states {
-      border-width: 3px;
+      border-width: 0.25rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-4 {
     @include states {
-      border-width: 4px;
+      border-width: 0.25rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-5 {
     @include states {
-      border-width: 5px;
+      border-width: 0.3125rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-6 {
     @include states {
-      border-width: 6px;
+      border-width: 0.375rem;
     }
   }
   .#{$-prefix}.#{$grid-prefix}-b-dotted {
@@ -845,36 +845,36 @@ $-colors-map: map-merge(
   /* Example: -mt-3 -lx-mt-5-hover -mt-10-focus */
   .#{$-prefix}.#{$grid-prefix}-mt,
   .#{$-prefix}.#{$grid-prefix}-my {
-    @include sizes_in_pixel(margin-top, $-small-sizes2, false);
+    @include sizes_in_rem(margin-top, $-small-sizes2, false);
   }
   /* Right margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mr-3 -lx-mr-5-hover -mr-10-focus */
   .#{$-prefix}.#{$grid-prefix}-mr,
   .#{$-prefix}.#{$grid-prefix}-mx {
-    @include sizes_in_pixel(margin-right, $-small-sizes2, false);
+    @include sizes_in_rem(margin-right, $-small-sizes2, false);
   }
   /* Bottom margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mb-3 -lx-mb-5-hover -mb-10-focus */
   .#{$-prefix}.#{$grid-prefix}-mb,
   .#{$-prefix}.#{$grid-prefix}-my {
-    @include sizes_in_pixel(margin-bottom, $-small-sizes2, false);
+    @include sizes_in_rem(margin-bottom, $-small-sizes2, false);
   }
   /* Left margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -ml-3 -lx-ml-5-hover -ml-10-focus */
   .#{$-prefix}.#{$grid-prefix}-ml,
   .#{$-prefix}.#{$grid-prefix}-mx {
-    @include sizes_in_pixel(margin-left, $-small-sizes2, false);
+    @include sizes_in_rem(margin-left, $-small-sizes2, false);
   }
   /* Left and right margins */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mx-3 -lx-mx-5-hover -mx-10-focus */
   /*
   * .#{$-prefix}.#{$grid-prefix}-mx {
-  *   @include sizes_in_pixel(margin-left, $-small-sizes2);
-  *   @include sizes_in_pixel(margin-right, $-small-sizes2);
+  *   @include sizes_in_rem(margin-left, $-small-sizes2);
+  *   @include sizes_in_rem(margin-right, $-small-sizes2);
   * }
   */
   /* Top and bottom margins */
@@ -882,15 +882,15 @@ $-colors-map: map-merge(
   /* Example: -my-3 -lx-my-5-hover -my-10-focus */
   /*
   * .#{$-prefix}.#{$grid-prefix}-my {
-  *   @include sizes_in_pixel(margin-top, $-small-sizes2);
-  *   @include sizes_in_pixel(margin-bottom, $-small-sizes2);
+  *   @include sizes_in_rem(margin-top, $-small-sizes2);
+  *   @include sizes_in_rem(margin-bottom, $-small-sizes2);
   * }
   */
   /* Box margins, all sides */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -m-3 */
   .#{$-prefix}.#{$grid-prefix}-m {
-    @include sizes_in_pixel(margin, $-small-sizes2, false);
+    @include sizes_in_rem(margin, $-small-sizes2, false);
   }
 
   /* Top padding */
@@ -898,36 +898,36 @@ $-colors-map: map-merge(
   /* Example: -pt-3 */
   .#{$-prefix}.#{$grid-prefix}-pt,
   .#{$-prefix}.#{$grid-prefix}-py {
-    @include sizes_in_pixel(padding-top, $-small-sizes, false);
+    @include sizes_in_rem(padding-top, $-small-sizes, false);
   }
   /* Right padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pr-3 */
   .#{$-prefix}.#{$grid-prefix}-pr,
   .#{$-prefix}.#{$grid-prefix}-px {
-    @include sizes_in_pixel(padding-right, $-small-sizes, false);
+    @include sizes_in_rem(padding-right, $-small-sizes, false);
   }
   /* Bottom padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pb-3 */
   .#{$-prefix}.#{$grid-prefix}-pb,
   .#{$-prefix}.#{$grid-prefix}-py {
-    @include sizes_in_pixel(padding-bottom, $-small-sizes, false);
+    @include sizes_in_rem(padding-bottom, $-small-sizes, false);
   }
   /* Left padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pl-3 */
   .#{$-prefix}.#{$grid-prefix}-pl,
   .#{$-prefix}.#{$grid-prefix}-px {
-    @include sizes_in_pixel(padding-left, $-small-sizes, false);
+    @include sizes_in_rem(padding-left, $-small-sizes, false);
   }
   /* Left and right paddings */
   /* Values: zero, 1 to 10 */
   /* Example: -px-3 */
   /*
   * .#{$-prefix}.#{$grid-prefix}-px {
-  *   @include sizes_in_pixel(padding-left, $-small-sizes2);
-  *   @include sizes_in_pixel(padding-right, $-small-sizes2);
+  *   @include sizes_in_rem(padding-left, $-small-sizes2);
+  *   @include sizes_in_rem(padding-right, $-small-sizes2);
   * }
   */
   /* Top and bottom paddings */
@@ -935,15 +935,15 @@ $-colors-map: map-merge(
   /* Example: -py-3 */
   /*
   * .#{$-prefix}.#{$grid-prefix}-py {
-  *   @include sizes_in_pixel(padding-top, $-small-sizes2);
-  *   @include sizes_in_pixel(padding-bottom, $-small-sizes2);
+  *   @include sizes_in_rem(padding-top, $-small-sizes2);
+  *   @include sizes_in_rem(padding-bottom, $-small-sizes2);
   * }
   */
   /* Box paddings, all sides */
   /* Values: zero, 1 to 10 */
   /* Example: -p-3 */
   .#{$-prefix}.#{$grid-prefix}-p {
-    @include sizes_in_pixel(padding, $-small-sizes, false);
+    @include sizes_in_rem(padding, $-small-sizes, false);
   }
   /*** END ***/
 
