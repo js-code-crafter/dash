@@ -661,7 +661,7 @@
 /*** BEGIN ***/
 /* Full rounded */
 .#{$-prefix}b-rounded-full {
-  @include prefixes(border-radius, 50%);
+  border-radius: 50%;
 }
 
 /* Rotates the element */
@@ -669,76 +669,76 @@
 /* Example: -effect-rotate-z-30 -effect-rotate-y-45-hover -effect-rotate-x-60-focus */
 /*** BEGIN ***/
 .#{$-prefix}effect-rotate-z {
-  @include mb-items(transform, $-rotate-degrees);
+  @include items(transform, $-rotate-degrees);
 }
 
 .#{$-prefix}effect-rotate-y {
-  @include mb-items(transform, $-rotate-degrees);
+  @include items(transform, $-rotate-degrees);
 }
 
 .#{$-prefix}effect-rotate-x {
-  @include mb-items(transform, $-rotate-degrees);
+  @include items(transform, $-rotate-degrees);
 }
 /*** END ***/
 
 /* Flip horizontal */
 .#{$-prefix}effect-flip-hz {
   //filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
-  @include prefixes(transform, scale(-1, 1));
+  transform: scale(-1, 1);
 }
 
 /* Flip vertical */
 .#{$-prefix}effect-flip-vt {
   //filter: progid: DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1);
-  @include prefixes(transform, scale(1, -1));
+  transform: scale(1, -1);
 }
 
 .#{$-prefix}effect-filter-none {
   @include states {
-    @include prefixes(filter, none);
+    filter: none;
   }
 }
 
 .#{$-prefix}effect-filter-gray {
   @include states {
-    @include prefixes(filter, grayscale(1));
+    filter: grayscale(1);
   }
 }
 
 .#{$-prefix}effect-filter-blur-1 {
   @include states {
-    @include prefixes(filter, blur(1px));
+    filter: blur(1px);
   }
 }
 
 .#{$-prefix}effect-filter-blur-2 {
   @include states {
-    @include prefixes(filter, blur(2px));
+    filter: blur(2px);
   }
 }
 
 .#{$-prefix}effect-filter-blur-3 {
   @include states {
-    @include prefixes(filter, blur(3px));
+    filter: blur(3px);
   }
 }
 
 .#{$-prefix}effect-filter-blur-4 {
   @include states {
-    @include prefixes(filter, blur(4px));
+    filter: blur(4px);
   }
 }
 
 .#{$-prefix}effect-transition {
-  @include prefixes(transition-property, all);
+  transition-property: all;
 }
 
 .#{$-prefix}effect-duration {
-  @include mb-items(transition-duration, $-times2);
+  @include items(transition-duration, $-times2);
 }
 
 .#{$-prefix}anim-duration {
-  @include mb-items(animation-duration, $-times2);
+  @include items(animation-duration, $-times2);
 }
 
 .#{$-prefix}effect-timing-linear {
@@ -857,28 +857,28 @@
 /* Values: 1, 2, 3, 5, 7 */
 /* Example: -effect-grow-1 -effect-grow-3-hover -effect-grow-2-focus */
 .#{$-prefix}effect-grow {
-  @include mb-items(transform, $-scales);
+  @include items(transform, $-scales);
 }
 
 /* Float effect */
 /* Values: 1, 2, 3, 4, 5 */
 /* Example: --effect-float-1 --effect-float-3-hover --effect-float-2-focus */
 .#{$-prefix}effect-float {
-  @include mb-items(transform, $-float-heights);
+  @include items(transform, $-float-heights);
 }
 
 /* Skew effect */
 /* Values: 1, 2, 3, 4, 5 */
 /* Example: -effect-skew-1 -effect-skew-3-hover -effect-skew-2-focus */
 .#{$-prefix}effect-skew {
-  @include mb-items(transform, $-skew-degrees);
+  @include items(transform, $-skew-degrees);
 }
 
 /* Skew-CCW effect */
 /* Values: 1, 2, 3, 4, 5 */
 /* Example: -effect-skew-ccw-1 -effect-skew-ccw-3-hover -effect-skew-ccw-2-focus */
 .#{$-prefix}effect-skew-ccw {
-  @include mb-items(transform, $-skew-degrees-ccw);
+  @include items(transform, $-skew-degrees-ccw);
 }
 
 .#{$-prefix}effect-underline {
@@ -894,13 +894,13 @@
   height: #{$-anim-underline-height}px;
   background-color: $-anim-underline-color;
   content: "";
-  @include prefixes(transition, all #{$-anim-underline-time}s);
+  transition: all #{$-anim-underline-time}s;
 }
 
 .#{$-prefix}effect-underline:hover {
   color: $-anim-underline-color;
   font-size: 15px;
-  @include prefixes(transition, all #{$-anim-underline-time}s);
+  transition: all #{$-anim-underline-time}s;
 }
 
 .#{$-prefix}effect-underline:hover:after {
@@ -932,13 +932,13 @@
   @include complex_items(animation, $-anim-spin-times);
 }
 
-@include keyframes(-anim-spin) {
+@keyframes -anim-spin {
   0% {
-    @include prefixes(transform, rotate(0deg));
+    transform: rotate(0deg);
   }
 
   100% {
-    @include prefixes(transform, rotate(359deg));
+    transform: rotate(359deg);
   }
 }
 
@@ -946,13 +946,13 @@
   @include complex_items(animation, $-anim-spin-times);
 }
 
-@include keyframes(-anim-spin-ccw) {
+@keyframes -anim-spin-ccw {
   0% {
-    @include prefixes(transform, rotate(359deg));
+    transform: rotate(359deg);
   }
 
   100% {
-    @include prefixes(transform, rotate(0deg));
+    transform: rotate(0deg);
   }
 }
 
@@ -1023,29 +1023,29 @@
 }
 
 .#{$-prefix}effect-dim {
-  @include prefixes(opacity, 1);
-  @include prefixes(transition, opacity 0.15s ease-in);
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
 }
 
 .#{$-prefix}effect-dim:hover,
 .#{$-prefix}effect-dim:focus {
-  @include prefixes(opacity, 0.5);
-  @include prefixes(transition, opacity 0.15s ease-in);
+  opacity: 0.5;
+  transition: opacity 0.15s ease-in;
 }
 
 .#{$-prefix}effect-dim:active {
-  @include prefixes(opacity, 0.8);
-  @include prefixes(transition, opacity 0.15s ease-out);
+  opacity: 0.8;
+  transition: opacity 0.15s ease-in;
 }
 
 .#{$-prefix}effect-glow {
-  @include prefixes(transition, opacity 0.15s ease-in);
+  transition: opacity 0.15s ease-in;
 }
 
 .#{$-prefix}effect-glow:hover,
 .#{$-prefix}effect-glow:focus {
-  @include prefixes(opacity, 1);
-  @include prefixes(transition, opacity 0.15s ease-in);
+  opacity: 1;
+  transition: opacity 0.15s ease-in;
 }
 
 .#{$-prefix}t-3d-white {
@@ -1097,25 +1097,18 @@
   padding: 0.5em 1.5em 0.75em;
   position: relative;
   vertical-align: middle;
-  @include prefixes(user-select, none);
-  @include prefixes(border-radius, 0.3em);
-  @include prefixes(
-    box-shadow,
-    unquote(
-      "inset 0 0 0 1px rgba(0, 0, 0, 0.1), inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05)"
-    )
-  );
+  user-select: none;
+  border-radius: 0.3em;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1),
+    inset 0 -0.25em 0 rgba(0, 0, 0, 0.25), 0 0.25em 0.25em rgba(0, 0, 0, 0.05);
 }
 
 .#{$-prefix}btn-pushy:active {
   margin-top: 0.25em;
   padding-bottom: 0.5em;
-  @include prefixes(
-    box-shadow,
-    unquote(
-      "inset 0 0 0 1px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1), inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05)"
-    )
-  );
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.2),
+    inset 0 2px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0.25em 0.5em rgba(0, 0, 0, 0.05);
 }
 
 .#{$-prefix}btn-pushy:active,
@@ -1175,11 +1168,11 @@
 */
 /*** BEGIN ***/
 .#{$-prefix}gr {
-  @include gradient-items-2-color();
+  @include gradient-2-color();
 }
 
 .#{$-prefix}gr {
-  @include gradient-items-3-color();
+  @include gradient-3-color();
 }
 /*** END ***/
 
@@ -1379,70 +1372,70 @@
   display: flex;
 }
 .#{$-prefix}f-dir-row {
-  @include flex_prefixes(flex-direction, row);
+  flex-direction: row;
 }
 .#{$-prefix}f-dir-col {
-  @include flex_prefixes(flex-direction, column);
+  flex-direction: column;
 }
 .#{$-prefix}f-dir-row-reverse {
-  @include flex_prefixes(flex-direction, row-reverse);
+  flex-direction: row-reverse;
 }
 .#{$-prefix}f-dir-col-reverse {
-  @include flex_prefixes(flex-direction, column-reverse);
+  flex-direction: column-reverse;
 }
 .#{$-prefix}f-start {
-  @include flex_prefixes(justify-content, flex-start);
+  justify-content: flex-start;
 }
 .#{$-prefix}f-end {
-  @include flex_prefixes(justify-content, flex-end);
+  justify-content: flex-end;
 }
 .#{$-prefix}f-center {
-  @include flex_prefixes(justify-content, center);
+  justify-content: center;
 }
 .#{$-prefix}f-between {
-  @include flex_prefixes(justify-content, space-between);
+  justify-content: space-between;
 }
 .#{$-prefix}f-around {
-  @include flex_prefixes(justify-content, space-around);
+  justify-content: space-around;
 }
 .#{$-prefix}f-evenly {
-  @include flex_prefixes(justify-content, space-evenly);
+  justify-content: space-evenly;
 }
 .#{$-prefix}f-content-start {
-  @include flex_prefixes(align-content, flex-start);
+  align-content: flex-start;
 }
 .#{$-prefix}f-content-end {
-  @include flex_prefixes(align-content, flex-end);
+  align-content: flex-end;
 }
 .#{$-prefix}f-content-center {
-  @include flex_prefixes(align-content, center);
+  align-content: center;
 }
 .#{$-prefix}f-content-stretch {
-  @include flex_prefixes(align-content, stretch);
+  align-content: stretch;
 }
 .#{$-prefix}f-content-between {
-  @include flex_prefixes(align-content, space-between);
+  align-content: space-between;
 }
 .#{$-prefix}f-content-around {
-  @include flex_prefixes(align-content, space-around);
+  align-content: space-around;
 }
 .#{$-prefix}f-content-evenly {
-  @include flex_prefixes(align-content, space-evenly);
+  align-content: space-evenly;
 }
 .#{$-prefix}f-items-start {
-  @include flex_prefixes(align-items, flex-start);
+  align-items: flex-start;
 }
 .#{$-prefix}f-items-end {
-  @include flex_prefixes(align-items, flex-end);
+  align-items: flex-end;
 }
 .#{$-prefix}f-items-center {
-  @include flex_prefixes(align-items, center);
+  align-items: center;
 }
 .#{$-prefix}f-items-stretch {
-  @include flex_prefixes(align-items, stretch);
+  align-items: stretch;
 }
 .#{$-prefix}f-items-baseline {
-  @include flex_prefixes(align-items, baseline);
+  align-items: baseline;
 }
 
 /* Flex-box grow factor */
