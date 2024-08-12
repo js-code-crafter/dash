@@ -3,7 +3,6 @@
 
 // Dash
 // A simple, lite-weight and powerful CSS framework
-// version: 0.1.0
 
 // ------ Color palette ------
 
@@ -365,14 +364,14 @@ $-colors-map: map-merge(
 /// @param {boolean} $columns
 ///   An array specifying sizes for line heights
 @mixin grid($name, $columns) {
-  .#{$name}-span-0 {
+  .#{$name}span-0 {
     display: none;
   }
-  .#{$name}-span-auto {
+  .#{$name}span-auto {
     flex-grow: 1;
   }
   @for $i from 1 to $columns + 1 {
-    .#{$name}-span-#{$i} {
+    .#{$name}span-#{$i} {
       width: #{math.div($i, $columns) * 100%};
     }
   }
@@ -384,30 +383,30 @@ $-colors-map: map-merge(
 @mixin classes($grid-prefix) {
   /* Center alignment */
   /* Example: -t-center -md-t-center */
-  .#{$-prefix}#{$grid-prefix}-t-center {
+  .#{$-prefix}#{$grid-prefix}t-center {
     text-align: center;
   }
 
   /* Left alignment */
   /* Example: -t-left -md-t-left */
-  .#{$-prefix}#{$grid-prefix}-t-left {
+  .#{$-prefix}#{$grid-prefix}t-left {
     text-align: left;
   }
 
   /* Right alignment */
   /* Example: -t-right -t-right-hover -lg-t-right-focus*/
-  .#{$-prefix}#{$grid-prefix}-t-right {
+  .#{$-prefix}#{$grid-prefix}t-right {
     text-align: right;
   }
 
   /* Justified text */
   /* Example: -t-justify -md-t-justify-hover -t-justify-focus */
-  .#{$-prefix}#{$grid-prefix}-t-justify {
+  .#{$-prefix}#{$grid-prefix}t-justify {
     text-align: justify;
   }
 
   /* Center both horizontally and vertically */
-  .#{$-prefix}#{$grid-prefix}-center {
+  .#{$-prefix}#{$grid-prefix}center {
     text-align: center;
     margin: auto;
     vertical-align: middle;
@@ -415,89 +414,89 @@ $-colors-map: map-merge(
 
   /* Align vertically */
   /* Example: -md-vertical-middle -vertical-top -vertical-bottom */
-  .#{$-prefix}#{$grid-prefix}-vertical {
+  .#{$-prefix}#{$grid-prefix}vertical {
     @include items(vertical-align, (top, middle, bottom));
   }
 
   /* Width 100% */
-  .#{$-prefix}#{$grid-prefix}-w-full {
+  .#{$-prefix}#{$grid-prefix}w-full {
     width: 100%;
   }
 
   /* Height 100% */
-  .#{$-prefix}#{$grid-prefix}-h-full {
+  .#{$-prefix}#{$grid-prefix}h-full {
     height: 100%;
   }
 
   /* Width 100vw */
-  .#{$-prefix}#{$grid-prefix}-w-screen {
+  .#{$-prefix}#{$grid-prefix}w-screen {
     width: 100vw;
   }
 
   /* Height 100vh */
-  .#{$-prefix}#{$grid-prefix}-h-screen {
+  .#{$-prefix}#{$grid-prefix}h-screen {
     height: 100vh;
   }
 
   /* Full screen */
-  .#{$-prefix}#{$grid-prefix}-screen {
+  .#{$-prefix}#{$grid-prefix}screen {
     width: 100vw;
     height: 100vh;
   }
 
   /* Width and height, 100% */
-  .#{$-prefix}#{$grid-prefix}-full {
+  .#{$-prefix}#{$grid-prefix}full {
     width: 100%;
     height: 100%;
   }
 
   /* No margin and padding */
-  .#{$-prefix}#{$grid-prefix}-pressed {
+  .#{$-prefix}#{$grid-prefix}pressed {
     margin: 0;
     padding: 0;
   }
 
   /* Z-index */
   /* Example: -z-1-front -md-z-2-back */
-  .#{$-prefix}#{$grid-prefix}-z {
+  .#{$-prefix}#{$grid-prefix}z {
     @include items(z-index, $-z-indices, false);
   }
 
-  /* Scrollbar status */
+  /* Scrollbar */
   /*** BEGIN ***/
   /* Hides the scroll-bars */
-  .#{$-prefix}#{$grid-prefix}-scroll-hidden {
+  .#{$-prefix}#{$grid-prefix}scroll-hidden {
     overflow: hidden;
   }
 
   /* Shows the browser scroll-bars when needed. */
-  .#{$-prefix}#{$grid-prefix}-scroll {
+  .#{$-prefix}#{$grid-prefix}scroll {
     overflow: auto;
   }
 
   /* Shows the horizontal scroll-bar when needed. */
-  .#{$-prefix}#{$grid-prefix}-scroll-x {
+  .#{$-prefix}#{$grid-prefix}scroll-x {
     overflow-x: auto;
   }
 
   /* Shows the vertical scroll-bar when needed. */
-  .#{$-prefix}#{$grid-prefix}-scroll-y {
+  .#{$-prefix}#{$grid-prefix}scroll-y {
     overflow-y: auto;
   }
   /*** END ***/
 
   /* Floats the element to the right side */
-  .#{$-prefix}#{$grid-prefix}-float-right {
+  .#{$-prefix}#{$grid-prefix}float-right {
     float: right;
   }
 
   /* Floats the element to the left side */
-  .#{$-prefix}#{$grid-prefix}-float-left {
+  .#{$-prefix}#{$grid-prefix}float-left {
     float: left;
   }
 
   /* Normal position */
-  .#{$-prefix}#{$grid-prefix}-float-none {
+  .#{$-prefix}#{$grid-prefix}float-none {
     float: none;
   }
 
@@ -510,7 +509,7 @@ $-colors-map: map-merge(
   */
   /* Values: zero, 1 to 10 */
   /* Example: -font-24 -md-font-16-hover -sm-font-13-focus */
-  .#{$-prefix}#{$grid-prefix}-font {
+  .#{$-prefix}#{$grid-prefix}font {
     @include fonts;
   }
   /*
@@ -521,194 +520,194 @@ $-colors-map: map-merge(
   */
   /* Values: zero, 1 to 10 */
   /* Example: -line-2 -md-line-3-hover -line-6-focus */
-  .#{$-prefix}#{$grid-prefix}-line {
+  .#{$-prefix}#{$grid-prefix}line {
     @include sizes(line-height);
   }
   /* Initial line height */
-  .#{$-prefix}#{$grid-prefix}-line-inherit {
+  .#{$-prefix}#{$grid-prefix}line-inherit {
     @include states {
       line-height: inherit;
     }
   }
   /* Normal line height */
-  .#{$-prefix}#{$grid-prefix}-line-normal {
+  .#{$-prefix}#{$grid-prefix}line-normal {
     @include states {
       line-height: normal;
     }
   }
   /* Hidden element */
-  .#{$-prefix}#{$grid-prefix}-d-hidden {
+  .#{$-prefix}#{$grid-prefix}d-hidden {
     @include states {
       display: none;
     }
   }
   /* Ghost element */
-  .#{$-prefix}#{$grid-prefix}-d-blank {
+  .#{$-prefix}#{$grid-prefix}d-blank {
     @include states {
       visibility: hidden;
     }
   }
   /* Hidden element. */
   /* For Example, hides a row of a table without resizing its columns. */
-  .#{$-prefix}#{$grid-prefix}-d-collapse {
+  .#{$-prefix}#{$grid-prefix}d-collapse {
     @include states {
       visibility: collapse;
     }
   }
   /* Container behavior */
-  .#{$-prefix}#{$grid-prefix}-d-block {
+  .#{$-prefix}#{$grid-prefix}d-block {
     @include states {
       display: block;
     }
   }
   /* Box effects */
   /*** BEGIN ***/
-  /* Values: transparent, 5, 10, 15, 25, 35, 50, 65, 75, 85, 90, 95, full */
+  /* Values: transparent, 5pc, 10pc, 15pc, 25pc, 35pc, 50pc, 65pc, 75pc, 85pc, 90pc, 95pc, full */
   /* Example: -opacity-5 -opacity-15-hover -opacity-35-focus */
-  .#{$-prefix}#{$grid-prefix}-opacity {
+  .#{$-prefix}#{$grid-prefix}opacity {
     @include items(opacity, $-opacity-levels);
   }
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -shadow-1 -md-shadow-2-hover */
-  .#{$-prefix}#{$grid-prefix}-shadow {
+  .#{$-prefix}#{$grid-prefix}shadow {
     @include items(box-shadow, $-shadows);
   }
   // `rt`: right-bottom
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -md-shadow-rt-5 -shadow-rt-4-hover */
-  .#{$-prefix}#{$grid-prefix}-shadow-rt {
+  .#{$-prefix}#{$grid-prefix}shadow-rt {
     @include items(box-shadow, $-shadows-rt);
   }
   // `lt`: left-bottom
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -shadow-lt-6 -md-shadow-lt-2-hover */
-  .#{$-prefix}#{$grid-prefix}-shadow-lt {
+  .#{$-prefix}#{$grid-prefix}shadow-lt {
     @include items(box-shadow, $-shadows-lt);
   }
   // `rb`: right-bottom
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -md-shadow-rb-3 -shadow-rb-1-hover */
-  .#{$-prefix}#{$grid-prefix}-shadow-rb {
+  .#{$-prefix}#{$grid-prefix}shadow-rb {
     @include items(box-shadow, $-shadows-rb);
   }
   // `lb`: left-bottom
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -shadow-lb-2 -md-shadow-lb-4-hover */
-  .#{$-prefix}#{$grid-prefix}-shadow-lb {
+  .#{$-prefix}#{$grid-prefix}shadow-lb {
     @include items(box-shadow, $-shadows-lb);
   }
   /* Values: 1, 2, 3, 4, 5, 6 */
   /* Example: -text-shadow-1 -md-text-shadow-2-hover */
-  .#{$-prefix}#{$grid-prefix}-text-shadow {
+  .#{$-prefix}#{$grid-prefix}text-shadow {
     @include items(text-shadow, $-text-shadows);
   }
   /*** END ***/
   /* Border radius. example: -rounded-1 (border size: 3px), -rounded-2-hover (border size 5px on mouse hover)*/
   /* Values: 3, 5, 7, 10, 15, 20, 25, 35 */
   /* Example: -rounded-5 -rounded-3-hover -md-rounded-10-focus */
-  .#{$-prefix}#{$grid-prefix}-b-rounded {
+  .#{$-prefix}#{$grid-prefix}b-rounded {
     @include sizes(border-radius, $-small-sizes);
   }
   /* Border */
   /*** BEGIN ***/
-  .#{$-prefix}#{$grid-prefix}-b {
+  .#{$-prefix}#{$grid-prefix}b {
     @include states {
       border: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-none {
+  .#{$-prefix}#{$grid-prefix}b-none {
     @include states {
       border: none;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-bt {
+  .#{$-prefix}#{$grid-prefix}bt {
     @include states {
       border-top: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-bb {
+  .#{$-prefix}#{$grid-prefix}bb {
     @include states {
       border-left: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-br {
+  .#{$-prefix}#{$grid-prefix}br {
     @include states {
       border-right: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-bl {
+  .#{$-prefix}#{$grid-prefix}bl {
     @include states {
       border-left: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-bx {
+  .#{$-prefix}#{$grid-prefix}bx {
     @include states {
       border-left: solid 1px #ddd;
       border-right: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-by {
+  .#{$-prefix}#{$grid-prefix}by {
     @include states {
       border-top: solid 1px #ddd;
       border-bottom: solid 1px #ddd;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-1 {
+  .#{$-prefix}#{$grid-prefix}b-1 {
     @include states {
       border-width: 0.0625rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-2 {
+  .#{$-prefix}#{$grid-prefix}b-2 {
     @include states {
       border-width: 0.125rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-3 {
+  .#{$-prefix}#{$grid-prefix}b-3 {
     @include states {
       border-width: 0.25rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-4 {
+  .#{$-prefix}#{$grid-prefix}b-4 {
     @include states {
       border-width: 0.25rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-5 {
+  .#{$-prefix}#{$grid-prefix}b-5 {
     @include states {
       border-width: 0.3125rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-6 {
+  .#{$-prefix}#{$grid-prefix}b-6 {
     @include states {
       border-width: 0.375rem;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-dotted {
+  .#{$-prefix}#{$grid-prefix}b-dotted {
     @include states {
       border-style: dotted;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-dashed {
+  .#{$-prefix}#{$grid-prefix}b-dashed {
     @include states {
       border-style: dashed;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-solid {
+  .#{$-prefix}#{$grid-prefix}b-solid {
     @include states {
       border-style: solid;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-double {
+  .#{$-prefix}#{$grid-prefix}b-double {
     @include states {
       border-style: double;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-ridge {
+  .#{$-prefix}#{$grid-prefix}b-ridge {
     @include states {
       border-style: ridge;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-b-groove {
+  .#{$-prefix}#{$grid-prefix}b-groove {
     @include states {
       border-style: groove;
     }
@@ -717,87 +716,87 @@ $-colors-map: map-merge(
 
   /* Outline */
   /*** BEGIN ***/
-  .#{$-prefix}#{$grid-prefix}-outline {
+  .#{$-prefix}#{$grid-prefix}outline {
     @include states {
       outline: solid 1px $-white;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-none {
+  .#{$-prefix}#{$grid-prefix}outline-none {
     @include states {
       outline: none;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-1 {
+  .#{$-prefix}#{$grid-prefix}outline-1 {
     @include states {
       outline-width: 1px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-2 {
+  .#{$-prefix}#{$grid-prefix}outline-2 {
     @include states {
       outline-width: 2px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-3 {
+  .#{$-prefix}#{$grid-prefix}outline-3 {
     @include states {
       outline-width: 3px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-4 {
+  .#{$-prefix}#{$grid-prefix}outline-4 {
     @include states {
       outline-width: 4px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-5 {
+  .#{$-prefix}#{$grid-prefix}outline-5 {
     @include states {
       outline-width: 5px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-6 {
+  .#{$-prefix}#{$grid-prefix}outline-6 {
     @include states {
       outline-width: 6px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-offset-1 {
+  .#{$-prefix}#{$grid-prefix}outline-offset-1 {
     @include states {
       outline-offset: 1px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-offset-2 {
+  .#{$-prefix}#{$grid-prefix}outline-offset-2 {
     @include states {
       outline-offset: 2px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-offset-3 {
+  .#{$-prefix}#{$grid-prefix}outline-offset-3 {
     @include states {
       outline-offset: 3px;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-dotted {
+  .#{$-prefix}#{$grid-prefix}outline-dotted {
     @include states {
       outline-style: dotted;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-dashed {
+  .#{$-prefix}#{$grid-prefix}outline-dashed {
     @include states {
       outline-style: dashed;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-solid {
+  .#{$-prefix}#{$grid-prefix}outline-solid {
     @include states {
       outline-style: solid;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-double {
+  .#{$-prefix}#{$grid-prefix}outline-double {
     @include states {
       outline-style: double;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-ridge {
+  .#{$-prefix}#{$grid-prefix}outline-ridge {
     @include states {
       outline-style: ridge;
     }
   }
-  .#{$-prefix}#{$grid-prefix}-outline-groove {
+  .#{$-prefix}#{$grid-prefix}outline-groove {
     @include states {
       outline-style: groove;
     }
@@ -806,35 +805,35 @@ $-colors-map: map-merge(
 
   /*
   *   Height sizes
-  *   Example: -md-h-hover-50 (height: 50px), -h-100-hover (height: 100px on mouse hover)
+  *   Example: -md-h-50px-hover (height: 50px), -h-100px-hover (height: 100px on mouse hover)
   *   Values: zero, 1 to 10, 1, 2px, 3px, 5px, 7px, 10px, 15px, 20px, 25px, 30px, 35px,
   *   40px, 45px, 50px, 60px, 70px, 80px, 90px, 100px, 120px, 140px, 160px, 180px, 200px,
   *   250px, 300px, 350px, 400px, 450px, 500px, sm, md, lg, xl, xxl
   *   Example: -h-5 -h-20px-hover -md-h-160px-focus
   */
-  .#{$-prefix}#{$grid-prefix}-h {
+  .#{$-prefix}#{$grid-prefix}h {
     @include sizes(height, $-sizes);
   }
   /*
   *   Width sizes
-  *   Example: -md-w-hover-50 (width: 50px), -w-100-hover (width: 100px on mouse hover)
+  *   Example: -md-w-50px-hover (width: 50px), -w-100px-hover (width: 100px on mouse hover)
   *   Values: zero, 1 to 10, 1, 2px, 3px, 5px, 7px, 10px, 15px, 20px, 25px, 30px, 35px,
   *   40px, 45px, 50px, 60px, 70px, 80px, 90px, 100px, 120px, 140px, 160px, 180px, 200px,
   *   250px, 300px, 350px, 400px, 450px, 500px, sm, md, lg, xl, xxl
   *   Example: -w-5 -w-20px-hover -md-w-160px-focus
   */
-  .#{$-prefix}#{$grid-prefix}-w {
+  .#{$-prefix}#{$grid-prefix}w {
     @include sizes(width, $-sizes);
   }
   /*
   *   The `max-width` property sizes
-  *   Example: -md-mw-hover-50 (width: 50px), -mw-100-hover (width: 100px on mouse hover)
+  *   Example: -md-mw-50px-hover (width: 50px), -mw-100px-hover (width: 100px on mouse hover)
   *   Values: zero, 1 to 10, 1, 2px, 3px, 5px, 7px, 10px, 15px, 20px, 25px, 30px, 35px,
   *   40px, 45px, 50px, 60px, 70px, 80px, 90px, 100px, 120px, 140px, 160px, 180px, 200px,
   *   250px, 300px, 350px, 400px, 450px, 500px, sm, md, lg, xl, xxl
   *   Example: -mw-5 -mw-20px-hover -md-mw-160px-focus
   */
-  .#{$-prefix}#{$grid-prefix}-mw {
+  .#{$-prefix}#{$grid-prefix}mw {
     @include sizes(width, $-sizes, false);
   }
   /* Margin and padding sizes */
@@ -843,137 +842,137 @@ $-colors-map: map-merge(
   /* Top margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mt-3 -lx-mt-5-hover -mt-10-focus */
-  .#{$-prefix}#{$grid-prefix}-mt,
-  .#{$-prefix}#{$grid-prefix}-my {
-    @include sizes_in_rem(margin-top, $-small-sizes2, false);
+  .#{$-prefix}#{$grid-prefix}mt,
+  .#{$-prefix}#{$grid-prefix}my {
+    @include sizes(margin-top, $-small-sizes2, false);
   }
   /* Right margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mr-3 -lx-mr-5-hover -mr-10-focus */
-  .#{$-prefix}#{$grid-prefix}-mr,
-  .#{$-prefix}#{$grid-prefix}-mx {
-    @include sizes_in_rem(margin-right, $-small-sizes2, false);
+  .#{$-prefix}#{$grid-prefix}mr,
+  .#{$-prefix}#{$grid-prefix}mx {
+    @include sizes(margin-right, $-small-sizes2, false);
   }
   /* Bottom margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mb-3 -lx-mb-5-hover -mb-10-focus */
-  .#{$-prefix}#{$grid-prefix}-mb,
-  .#{$-prefix}#{$grid-prefix}-my {
-    @include sizes_in_rem(margin-bottom, $-small-sizes2, false);
+  .#{$-prefix}#{$grid-prefix}mb,
+  .#{$-prefix}#{$grid-prefix}my {
+    @include sizes(margin-bottom, $-small-sizes2, false);
   }
   /* Left margin */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -ml-3 -lx-ml-5-hover -ml-10-focus */
-  .#{$-prefix}#{$grid-prefix}-ml,
-  .#{$-prefix}#{$grid-prefix}-mx {
-    @include sizes_in_rem(margin-left, $-small-sizes2, false);
+  .#{$-prefix}#{$grid-prefix}ml,
+  .#{$-prefix}#{$grid-prefix}mx {
+    @include sizes(margin-left, $-small-sizes2, false);
   }
   /* Left and right margins */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -mx-3 -lx-mx-5-hover -mx-10-focus */
   /*
-  * .#{$-prefix}#{$grid-prefix}-mx {
-  *   @include sizes_in_rem(margin-left, $-small-sizes2);
-  *   @include sizes_in_rem(margin-right, $-small-sizes2);
+  * .#{$-prefix}#{$grid-prefix}mx {
+  *   @include sizes(margin-left, $-small-sizes2);
+  *   @include sizes(margin-right, $-small-sizes2);
   * }
   */
   /* Top and bottom margins */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -my-3 -lx-my-5-hover -my-10-focus */
   /*
-  * .#{$-prefix}#{$grid-prefix}-my {
-  *   @include sizes_in_rem(margin-top, $-small-sizes2);
-  *   @include sizes_in_rem(margin-bottom, $-small-sizes2);
+  * .#{$-prefix}#{$grid-prefix}my {
+  *   @include sizes(margin-top, $-small-sizes2);
+  *   @include sizes(margin-bottom, $-small-sizes2);
   * }
   */
   /* Box margins, all sides */
   /* Values: auto, zero, 1 to 10 */
   /* Example: -m-3 */
-  .#{$-prefix}#{$grid-prefix}-m {
-    @include sizes_in_rem(margin, $-small-sizes2, false);
+  .#{$-prefix}#{$grid-prefix}m {
+    @include sizes(margin, $-small-sizes2, false);
   }
 
   /* Top padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pt-3 */
-  .#{$-prefix}#{$grid-prefix}-pt,
-  .#{$-prefix}#{$grid-prefix}-py {
-    @include sizes_in_rem(padding-top, $-small-sizes, false);
+  .#{$-prefix}#{$grid-prefix}pt,
+  .#{$-prefix}#{$grid-prefix}py {
+    @include sizes(padding-top, $-small-sizes, false);
   }
   /* Right padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pr-3 */
-  .#{$-prefix}#{$grid-prefix}-pr,
-  .#{$-prefix}#{$grid-prefix}-px {
-    @include sizes_in_rem(padding-right, $-small-sizes, false);
+  .#{$-prefix}#{$grid-prefix}pr,
+  .#{$-prefix}#{$grid-prefix}px {
+    @include sizes(padding-right, $-small-sizes, false);
   }
   /* Bottom padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pb-3 */
-  .#{$-prefix}#{$grid-prefix}-pb,
-  .#{$-prefix}#{$grid-prefix}-py {
-    @include sizes_in_rem(padding-bottom, $-small-sizes, false);
+  .#{$-prefix}#{$grid-prefix}pb,
+  .#{$-prefix}#{$grid-prefix}py {
+    @include sizes(padding-bottom, $-small-sizes, false);
   }
   /* Left padding */
   /* Values: zero, 1 to 10 */
   /* Example: -pl-3 */
-  .#{$-prefix}#{$grid-prefix}-pl,
-  .#{$-prefix}#{$grid-prefix}-px {
-    @include sizes_in_rem(padding-left, $-small-sizes, false);
+  .#{$-prefix}#{$grid-prefix}pl,
+  .#{$-prefix}#{$grid-prefix}px {
+    @include sizes(padding-left, $-small-sizes, false);
   }
   /* Left and right paddings */
   /* Values: zero, 1 to 10 */
   /* Example: -px-3 */
   /*
-  * .#{$-prefix}#{$grid-prefix}-px {
-  *   @include sizes_in_rem(padding-left, $-small-sizes2);
-  *   @include sizes_in_rem(padding-right, $-small-sizes2);
+  * .#{$-prefix}#{$grid-prefix}px {
+  *   @include sizes(padding-left, $-small-sizes2);
+  *   @include sizes(padding-right, $-small-sizes2);
   * }
   */
   /* Top and bottom paddings */
   /* Values: zero, 1 to 10 */
   /* Example: -py-3 */
   /*
-  * .#{$-prefix}#{$grid-prefix}-py {
-  *   @include sizes_in_rem(padding-top, $-small-sizes2);
-  *   @include sizes_in_rem(padding-bottom, $-small-sizes2);
+  * .#{$-prefix}#{$grid-prefix}py {
+  *   @include sizes(padding-top, $-small-sizes2);
+  *   @include sizes(padding-bottom, $-small-sizes2);
   * }
   */
   /* Box paddings, all sides */
   /* Values: zero, 1 to 10 */
   /* Example: -p-3 */
-  .#{$-prefix}#{$grid-prefix}-p {
-    @include sizes_in_rem(padding, $-small-sizes, false);
+  .#{$-prefix}#{$grid-prefix}p {
+    @include sizes(padding, $-small-sizes, false);
   }
   /*** END ***/
 
   /* Flex grid based on flexbox (for modern browsers) */
   /*** BEGIN ***/
-  .#{$-prefix}#{$grid-prefix}-f-wrap {
+  .#{$-prefix}#{$grid-prefix}f-wrap {
     flex-wrap: wrap;
   }
-  .#{$-prefix}#{$grid-prefix}-f-wrap-reverse {
+  .#{$-prefix}#{$grid-prefix}f-wrap-reverse {
     flex-wrap: wrap-reverse;
   }
-  .#{$-prefix}#{$grid-prefix}-f-row-gap {
+  .#{$-prefix}#{$grid-prefix}f-row-gap {
     @include items(row-gap, $-small-sizes, false);
   }
-  .#{$-prefix}#{$grid-prefix}-f-col-gap {
+  .#{$-prefix}#{$grid-prefix}f-col-gap {
     @include items(column-gap, $-small-sizes, false);
   }
-  .#{$-prefix}#{$grid-prefix}-f-item-start {
+  .#{$-prefix}#{$grid-prefix}f-item-start {
     align-self: flex-start;
   }
-  .#{$-prefix}#{$grid-prefix}-f-item-end {
+  .#{$-prefix}#{$grid-prefix}f-item-end {
     align-self: flex-end;
   }
-  .#{$-prefix}#{$grid-prefix}-f-item-center {
+  .#{$-prefix}#{$grid-prefix}f-item-center {
     align-self: center;
   }
-  .#{$-prefix}#{$grid-prefix}-f-item-stretch {
+  .#{$-prefix}#{$grid-prefix}f-item-stretch {
     align-self: stretch;
   }
-  .#{$-prefix}#{$grid-prefix}-f-item-baseline {
+  .#{$-prefix}#{$grid-prefix}f-item-baseline {
     align-self: baseline;
   }
 

@@ -3,10 +3,10 @@
 /*
 *   Dash
 *   A simple, lite-weight and powerful CSS framework
-*   version: 1.0.0
 */
 
-/* Unstyled element format. For example it can changes a link to look like as a normal text. */
+/* Unstyled element */
+/* Removes default styles from elements, making them appear as normal text. */
 /* Usage: -unstyled */
 .#{$-prefix}unstyled,
 .#{$-prefix}unstyled * {
@@ -26,7 +26,7 @@
   scroll-behavior: smooth;
 }
 
-/* Link format */
+/* Link */
 /* Example: -link -link-hover -link-focus */
 .#{$-prefix}link {
   @include states {
@@ -46,7 +46,7 @@
   }
 }
 
-/* italic text */
+/* Italic text */
 /* Example: -italic -italic-hover -italic-focus */
 .#{$-prefix}t-italic {
   @include states {
@@ -54,8 +54,7 @@
   }
 }
 
-/* Text decoration formats */
-
+/* Text decorations */
 /*** BEGIN ***/
 /* Underlined text */
 /* Example: -t-underline -t-underline-hover -t-underline-focus */
@@ -114,7 +113,7 @@
 }
 /*** END ***/
 
-/* Text transform */
+/* Text transformation */
 /*** BEGIN ***/
 .#{$-prefix}t-lowercase {
   @include states {
@@ -160,12 +159,12 @@
   clear: left;
 }
 
-/* Normal position */
+/* Initial position */
 .#{$-prefix}clear-none {
   clear: none;
 }
 
-/* Use `-clearfix` to clear space from both sides of the element. (cross browser support) */
+/* Use the `-clearfix` to clear space from both sides of the element. (cross browser support) */
 /*** BEGIN ***/
 .#{$-prefix}clearfix:before {
   content: "";
@@ -189,7 +188,7 @@
 }
 /*** END ***/
 
-/* The box-sizing methods */
+/* Box-sizing methods */
 /*** BEGIN ***/
 .#{$-prefix}box-content,
 .#{$-prefix}box-content * {
@@ -410,14 +409,14 @@
   display: grid;
 }
 
-/* Mouse cursor shapes */
+/* Cursor styles */
 /*** BEGIN ***/
-/* Default mouse cursor */
+/* Default cursor */
 .#{$-prefix}cursor-default {
   cursor: default;
 }
 
-/* Pointer mouse cursor */
+/* Pointer cursor */
 .#{$-prefix}cursor-pointer {
   cursor: pointer;
 }
@@ -657,12 +656,13 @@
 }
 /*** END ***/
 
-/* Effects and animations */
-/*** BEGIN ***/
 /* Full rounded */
 .#{$-prefix}b-rounded-full {
   border-radius: 50%;
 }
+
+/* Effects and animations */
+/*** BEGIN ***/
 
 /* Rotates the element */
 /* Values: 0, 30, 45, 60, 90, 180, 360, ccw-30, ccw-45, ccw-60, ccw-90, ccw-180, ccw-360 */
@@ -862,7 +862,7 @@
 
 /* Float effect */
 /* Values: 1, 2, 3, 4, 5 */
-/* Example: --effect-float-1 --effect-float-3-hover --effect-float-2-focus */
+/* Example: -effect-float-1 -effect-float-3-hover -effect-float-2-focus */
 .#{$-prefix}effect-float {
   @include items(transform, $-float-heights);
 }
@@ -1117,7 +1117,8 @@
 }
 /*** END ***/
 
-/* Colors. examples: -t-red (red text color) -bg-blue (blue background) -b-green (green border color) */
+/* Colors */
+/* examples: -t-red (red text color) -bg-blue (blue background) -b-green (green border color) */
 /*** BEGIN ***/
 /*
 *   The `-t` prefix means: text color
@@ -1126,7 +1127,7 @@
 *   red,pink,fuchsia,purple,maroon,black,gray,white
 *   Add -1, -2, -3, -4, -5 postfixes. the `-1` is the lightest color and the `-5` is the darkest one.
 *   The `transparent` is a valid value too.
-*   Example: -text-green -xl-text-red-1-hover -text-blue-3-focus -text-transparent
+*   Example: -t-green -xl-t-red-1-hover -t-blue-3-focus -t-transparent
 */
 .#{$-prefix}t {
   @include items(color, $-colors-map);
@@ -1312,6 +1313,7 @@
 }
 /*** END ***/
 
+/* Flexible box and grid system */
 /*  Rows and columns of grid system
 *   Example:
 *   <div class="-container">
@@ -1479,8 +1481,8 @@
     width: 576px;
   }
 
-  @include grid(sm, $-grid-columns-count);
-  @include classes(sm);
+  @include grid(sm-, $-grid-columns-count);
+  @include classes(sm-);
 }
 
 @media (min-width: 768px) {
@@ -1488,8 +1490,8 @@
     width: 768px;
   }
 
-  @include grid(md, $-grid-columns-count);
-  @include classes(md);
+  @include grid(md-, $-grid-columns-count);
+  @include classes(md-);
 }
 
 @media (min-width: 992px) {
@@ -1497,8 +1499,8 @@
     width: 992px;
   }
 
-  @include grid(lg, $-grid-columns-count);
-  @include classes(lg);
+  @include grid(lg-, $-grid-columns-count);
+  @include classes(lg-);
 }
 
 @media (min-width: 1200px) {
@@ -1506,8 +1508,8 @@
     width: 1200px;
   }
 
-  @include grid(xl, $-grid-columns-count);
-  @include classes(xl);
+  @include grid(xl-, $-grid-columns-count);
+  @include classes(xl-);
 }
 
 @media (min-width: 1400px) {
@@ -1515,6 +1517,6 @@
     width: 1400px;
   }
 
-  @include grid(xxl, $-grid-columns-count);
-  @include classes(xxl);
+  @include grid(xxl-, $-grid-columns-count);
+  @include classes(xxl-);
 }

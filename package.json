@@ -1,9 +1,11 @@
 {
-  "name": "dash",
-  "version": "0.1.0",
+  "name": "dash-scss",
+  "version": "1.0.9",
   "private": false,
   "description": "A simple, lite-weight and powerful CSS framework",
   "keywords": [
+    "dash-scss",
+    "dash",
     "utility-first CSS framework",
     "utility-first",
     "css",
@@ -11,7 +13,8 @@
     "sass",
     "scss",
     "simple",
-    "lite-weight",
+    "lite",
+    "liteweight",
     "css framework",
     "pure css",
     "no config"

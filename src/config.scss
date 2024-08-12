@@ -2,34 +2,33 @@
 
 //   Dash
 //   A simple, lite-weight and powerful CSS framework
-//   version: 0.5.0
 
-// ------ Prefix and postfix ------
-$-prefix: "-";
+// ------ Prefix ------
+$-prefix: "-" !default;
 
 // ------ Color variables ------
-$-blue: #1681df;
-$-aqua: #50cdff;
-$-cyan: #28e9e9;
-$-teal: #18af98;
-$-green: #2abb3b;
-$-lime: #44df07;
-$-olive: #b5d115;
-$-yellow: #ffe851;
-$-orange: #fd9c46;
-$-brown: #da421d;
-$-red: #ff4d4d;
-$-pink: #fc598f;
-$-fuchsia: #e61db7;
-$-purple: #b10dc9;
-$-maroon: #85144b;
-$-black: #222;
-$-gray: #888;
-$-white: #ddd;
+$-blue: #1681df !default;
+$-aqua: #50cdff !default;
+$-cyan: #28e9e9 !default;
+$-teal: #18af98 !default;
+$-green: #2abb3b !default;
+$-lime: #44df07 !default;
+$-olive: #b5d115 !default;
+$-yellow: #ffe851 !default;
+$-orange: #fd9c46 !default;
+$-brown: #da421d !default;
+$-red: #ff4d4d !default;
+$-pink: #fc598f !default;
+$-fuchsia: #e61db7 !default;
+$-purple: #b10dc9 !default;
+$-maroon: #85144b !default;
+$-black: #222 !default;
+$-gray: #888 !default;
+$-white: #ddd !default;
 
 // ------ Brightness factors ------
-$-brightness-factor-1: 10;
-$-brightness-factor-2: 20;
+$-brightness-factor-1: 10 !default;
+$-brightness-factor-2: 20 !default;
 
 // ------ Gradient colors ------
 $-gradient-colors: (
@@ -38,7 +37,7 @@ $-gradient-colors: (
   "yellow": $-yellow,
   "orange": $-orange,
   "pink": $-pink,
-);
+) !default;
 
 // ------ Colors ------
 // The `$-colors-map` variable will fill based on `$-colors` variable.
@@ -61,7 +60,7 @@ $-colors: (
   "black": $-black,
   "gray": $-gray,
   "white": $-white,
-);
+) !default;
 
 // Color Naming Example
 //
@@ -84,13 +83,13 @@ $-colors: (
 //   "error3": $-maroon,
 //   "neutral": $-gray,
 //   "neutral2": $-black,
-// );
+// ) !default;
 
 // ------ Flexbox variables -----
-$-grid-columns-count: 12;
-$-flex-scales: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+$-grid-columns-count: 12 !default;
+$-flex-scales: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12) !default;
 $-orders: (
-  zero: 0,
+  0: 0,
   1-front: 1,
   2-front: 2,
   3-front: 3,
@@ -115,11 +114,11 @@ $-orders: (
   10-back: -10,
   11-back: -11,
   12-back: -12,
-);
+) !default;
 
 // ------ Other variables ------
 $-z-indices: (
-  zero: 0,
+  0: 0,
   1-front: 10,
   2-front: 200,
   3-front: 3000,
@@ -130,9 +129,9 @@ $-z-indices: (
   3-back: -3000,
   4-back: -40000,
   5-back: -500000,
-);
+) !default;
 $-font-sizes: (
-  zero: 0,
+  0: 0,
   1: 0.5625rem,
   // 9px
   2: 0.6875rem,
@@ -153,9 +152,9 @@ $-font-sizes: (
   // 90px
   10: 8rem,
   // 128px
-);
+) !default;
 $-font-heights: (
-  zero: 0,
+  0: 0,
   1: 0.6875rem,
   // 11px
   2: 0.875rem,
@@ -176,9 +175,9 @@ $-font-heights: (
   // 100px
   10: 8.75rem,
   // 140px
-);
+) !default;
 $-small-sizes: (
-  zero: 0,
+  0: 0,
   1: 0.0625rem,
   // 1px
   2: 0.125rem,
@@ -199,10 +198,10 @@ $-small-sizes: (
   // 25px
   10: 2.1875rem,
   // 35px
-);
+) !default;
 $-small-sizes2: (
   auto: auto,
-  zero: 0,
+  0: 0,
   1: 0.0625rem,
   // 1px
   2: 0.125rem,
@@ -223,9 +222,9 @@ $-small-sizes2: (
   // 25px
   10: 2.1875rem,
   // 35px
-);
+) !default;
 $-sizes: (
-  zero: 0,
+  0: 0,
   1px: 0.0625rem,
   // 1px
   1: 0.0625rem,
@@ -318,7 +317,7 @@ $-sizes: (
   // 1400px
   xxl: 100rem,
   // 1600px
-);
+) !default;
 $-opacity-levels: (
   transparent: 0,
   5pc: 0.05,
@@ -333,9 +332,9 @@ $-opacity-levels: (
   90pc: 0.9,
   95pc: 0.95,
   full: 1,
-);
+) !default;
 $-rotate-degrees: (
-  zero: rotate(0deg),
+  0: rotate(0deg),
   30deg: rotate(30deg),
   45deg: rotate(45deg),
   60deg: rotate(60deg),
@@ -352,10 +351,10 @@ $-rotate-degrees: (
   ccw-135deg: rotate(-135deg),
   ccw-150deg: rotate(-150deg),
   ccw-180deg: rotate(-180deg),
-);
-$-anim-underline-height: 5;
-$-anim-underline-color: $-blue;
-$-anim-underline-time: 0.2;
+) !default;
+$-anim-underline-height: 5 !default;
+$-anim-underline-color: $-blue !default;
+$-anim-underline-time: 0.2 !default;
 $-anim-spin-times: (
   1: "spin 0.3 infinite linear",
   2: "spin 0.5 infinite linear",
@@ -367,7 +366,7 @@ $-anim-spin-times: (
   8: "spin 8 infinite linear",
   9: "spin 16 infinite linear",
   10: "spin 32 infinite linear",
-);
+) !default;
 $-times: (
   1: 0.3s,
   2: 0.5s,
@@ -379,7 +378,7 @@ $-times: (
   8: 8s,
   9: 16s,
   10: 32s,
-);
+) !default;
 $-times2: (
   1: 0.3s,
   2: 0.5s,
@@ -391,7 +390,7 @@ $-times2: (
   8: 8s,
   9: 16s,
   10: 32s,
-);
+) !default;
 $-shadows: (
   1: 0 0 0.0625rem 0 rgba(0, 0, 0, 0.2),
   // 0 0 1px 0
@@ -405,7 +404,7 @@ $-shadows: (
   // 0 0 5px 4px
   6: 0px 0px 0.375rem 0.3125rem rgba(0, 0, 0, 0.2),
   // 0 0 6px 5px
-);
+) !default;
 
 $-shadows-rt: (
   1: 0.0625rem -0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.2),
@@ -420,7 +419,7 @@ $-shadows-rt: (
   // 1px -1px 5px 4px
   6: 0.0625rem -0.0625rem 0.375rem 0.3125rem rgba(0, 0, 0, 0.2),
   // 1px -1px 6px 5px
-);
+) !default;
 
 $-shadows-lt: (
   1: -0.0625rem -0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.2),
@@ -435,7 +434,7 @@ $-shadows-lt: (
   // -1px -1px 5px 4px
   6: -0.0625rem -0.0625rem 0.375rem 0.3125rem rgba(0, 0, 0, 0.2),
   // -1px -1px 6px 5px
-);
+) !default;
 
 $-shadows-rb: (
   1: 0.0625rem 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.2),
@@ -450,7 +449,7 @@ $-shadows-rb: (
   // 1px 1px 5px 4px
   6: 0.0625rem 0.0625rem 0.375rem 0.3125rem rgba(0, 0, 0, 0.2),
   // 1px 1px 6px 5px
-);
+) !default;
 
 $-shadows-lb: (
   1: -0.0625rem 0.0625rem 0.0625rem 0 rgba(0, 0, 0, 0.2),
@@ -465,7 +464,7 @@ $-shadows-lb: (
   // 1px 1px 5px 4px
   6: -0.0625rem 0.0625rem 0.375rem 0.3125rem rgba(0, 0, 0, 0.2),
   // 1px 1px 6px 5px
-);
+) !default;
 $-text-shadows: (
   1: 0 0.0625rem 0.0625rem rgba(0, 0, 0, 0.2),
   // 0 1px 1px
@@ -479,14 +478,14 @@ $-text-shadows: (
   // 0 5px 3px
   6: 0 0.375rem 0.25rem rgba(0, 0, 0, 0.2),
   // 0 6px 4px
-);
+) !default;
 $-scales: (
   1: scale(1.1),
   2: scale(2.2),
   3: scale(1.3),
   4: scale(1.5),
   5: scale(1.7),
-);
+) !default;
 $-float-heights: (
   1: translateY(-0.125rem),
   // -2px
@@ -498,18 +497,18 @@ $-float-heights: (
   // -7px
   5: translateY(-0.625rem),
   // -10px
-);
+) !default;
 $-skew-degrees: (
   1: skew(5deg),
   2: skew(10deg),
   3: skew(20deg),
   4: skew(35deg),
   5: skew(45deg),
-);
+) !default;
 $-skew-degrees-ccw: (
   1: skew(-5deg),
   2: skew(-10deg),
   3: skew(-20deg),
   4: skew(-35deg),
   5: skew(-45deg),
-);
+) !default;

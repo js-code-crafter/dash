@@ -19,10 +19,10 @@ module.exports = {
           MiniCssExtractPlugin.loader,
           //'style-loader',
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
           "postcss-loader",
           "sass-loader",
@@ -35,5 +35,5 @@ module.exports = {
       filename: "./css/dash.min.css",
     }),
   ],
-  mode: 'production',
+  mode: "production",
 };
